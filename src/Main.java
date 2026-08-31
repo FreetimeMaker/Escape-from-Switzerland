@@ -1,8 +1,10 @@
+import me.freetime.efs.GameController;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 final void main() throws InterruptedException {
-    int startTime = 1000;
-    int timeElapsed = 0;
+    double startTime = 28800.0;
+    double timeElapsed = 0.0;
     boolean start = false;
 
     IO.println("Hello and welcome to \"Escape from Switzerland\"!");
@@ -13,41 +15,31 @@ final void main() throws InterruptedException {
         IO.println("Welcome: " + eingabe);
     }
 
-    IO.println("Your mission is to escape from Switzerland before the time runs out!");
-    IO.println("You start at the \"Älggi-Alp\" that's exactly the middle of Switzerland.");
+    IO.println("Your mission is to escape from Switzerland before the time runs out and stop Germany to take over the World!");
+    IO.println("if the time gets to 0 seconds Germany will take over the World successfuly!");
+    IO.println("You start at the \"Älggialp\" in the canton \"Obwalden\".");
     IO.println("If you want to go in any Direction type it in the Console and you go in that Direction.");
-    IO.println("Per Room you have 1000 Seconds to get out");
+    IO.println("You've got 5 hours to get out of Switzerland");
     IO.println("You can now start the game with Start");
 
     if (console != null) {
-        Scanner in = new Scanner(System.in);
-        List<String> answers = Arrays.asList(new String[]{"Start", "start"});
+        List<String> validStart = Arrays.asList("start", "s");
 
         boolean again = false;
         do {
-            String answer = in.next();
+            String answer = console.readLine("Type \"Start\" to begin: ").trim().toLowerCase();
 
-            if (answers.contains(answer.toLowerCase())) {
+            if (validStart.contains(answer)) {
                 start = true;
-                break;
+                again = false;
             } else {
-                System.out.println("You can answer with these words: " + answers);
+                System.out.println("Invalid input! You can answer with: " + validStart);
                 again = true;
             }
         } while (again);
     }
 
-    if (start == true) {
-        while (startTime > 0) {
-            timeElapsed++;
-            double remTime = (startTime - timeElapsed);
-            IO.println("Time left: " + remTime);
-            Thread.sleep(1000);
-
-            if (remTime <= 0) {
-                IO.println("Time's up! You failed to escape.");
-                break;
-            }
-        }
+    if (start) {
+        startTime = GameController.handleDirectionInput(console, startTime, timeElapsed);
     }
 }
