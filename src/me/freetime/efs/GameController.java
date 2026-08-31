@@ -1,57 +1,35 @@
 package me.freetime.efs;
 
-import me.freetime.efs.east.Truebsee;
-import me.freetime.efs.north.Rufi;
-import me.freetime.efs.south.Hasliberg;
-import me.freetime.efs.west.Lungern;
-
 import java.io.Console;
 
 public class GameController {
-    public static double handleDirectionInput(Console console, double startTime, double timeElapsed) {
-        IO.println("You're at \"Älggialp\", in which Direction do you want to go?");
 
-        Direction direction = null;
+    private static Direction currentLocation = WorldMap.createMap();
 
-        if (console != null) {
-            boolean validChoice = false;
+    public static double handleDirectionInput(Console console, double startTime) {
+        if (console == null) return startTime;
 
-            do {
-                String directionAnswer = console.readLine("Choose a direction (North/South/East/West): ").trim().toLowerCase();
+        IO.println("You're currently at: " + currentLocation.getName());
+        Direction.Route chosenRoute = null;
 
-                switch (directionAnswer) {
-                    case "north":
-                    case "n":
-                        direction = new Rufi();
-                        validChoice = true;
-                        break;
-                    case "south":
-                    case "s":
-                        direction = new Hasliberg();
-                        validChoice = true;
-                        break;
-                    case "west":
-                    case "w":
-                        direction = new Lungern();
-                        validChoice = true;
-                        break;
-                    case "east":
-                    case "e":
-                        direction = new Truebsee();
-                        validChoice = true;
-                        break;
-                    default:
-                        System.out.println("Invalid direction! Type North (N), South (S), East (E), or West (W).");
-                        validChoice = false;
-                        break;
-                }
-            } while (!validChoice);
+        while (chosenRoute == null) {
+            String input = console.readLine("Choose a direction (North/South/East/West): ").trim().toLowerCase();
+
+            chosenRoute = currentLocation.getRoute(input);
+
+            if (chosenRoute == null) {
+                IO.println("Invalid direction or no path in that direction! Try again.");
+            }
         }
 
-        if (direction != null) {
-            double timeSpent = direction.execute();
-            startTime -= timeSpent;
-        }
+        currentLocation = chosenRoute.destination;
+
+        double timeSpent = chosenRoute.travelTime;
+        startTime -= timeSpent;
+
+        int minutes = (int) (timeSpent / 60);
+        int seconds = (int) (timeSpent % 60);
+        IO.println("You traveled to \"" + currentLocation.getName() + "\". It took " + minutes + " minutes and " + seconds + " seconds.");
 
         if (startTime <= 0) {
             IO.println("Time's up! You failed to escape and get help.");
