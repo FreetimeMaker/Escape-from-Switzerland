@@ -24,7 +24,7 @@ public class GameController {
 
         currentLocation = chosenRoute.destination;
 
-        double timeSpent = chosenRoute.travelTime;
+        timeElapsed = chosenRoute.travelTime;
         startTime -= timeSpent;
 
         int minutes = (int) (timeSpent / 60);
