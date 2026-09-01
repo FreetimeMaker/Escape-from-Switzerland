@@ -1,4 +1,4 @@
-package me.freetime.efs;
+package com.freetime.efs;
 
 import java.io.Console;
 
