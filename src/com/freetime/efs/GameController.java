@@ -86,11 +86,11 @@ public class GameController {
         System.out.println("If you want to go in any direction type it in the console.");
         System.out.println("You've got 5 hours to get out of Switzerland.");
 
-        List<String> validStart = Arrays.asList("start", "s");
+        List<String> validStart = Arrays.asList("start", "start");
         boolean start = false;
 
         while (!start) {
-            System.out.print("Type \"Start\" to begin: ");
+            System.out.print("Type \"Start\" or \"start\" to begin: ");
             String answer = scanner.nextLine().trim().toLowerCase();
 
             if (validStart.contains(answer)) {
