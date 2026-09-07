@@ -40,6 +40,6 @@ final void main() throws InterruptedException {
     }
 
     if (start) {
-        startTime = GameController.handleDirectionInput(console, startTime);
+        startTime = GameController.handleDirectionInput(console, startTime, timeElapsed);
     }
 }
