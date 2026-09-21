@@ -459,6 +459,16 @@ public class GameController {
                 "Du bist jetzt in \"Kriens\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location heftihuette = new Location(
+                "Heftihütte",
+                "Du bist jetzt bei der \"Hefthütte\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location berghaus_klondike = new Location(
+                "Berghaus Klondike",
+                "Du bist jetzt beim \"Berghaus Klondike\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -618,6 +628,10 @@ public class GameController {
         // Vom Teufibach
         teufibach.setTwoWayExit(Direction.SOUTH, melchtal_waterfall, 390.0);
         teufibach.setTwoWayExit(Direction.NORTH, kriens, 1290.0);
+        teufibach.setTwoWayExit(Direction.WEST, heftihuette, 2100.0);
+        teufibach.setTwoWayExit(Direction.EAST, berghaus_klondike, 1050.0);
+
+        // Vom Eugenisee
 
         this.currentLocation = aelggialp;
     }
