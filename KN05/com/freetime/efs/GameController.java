@@ -62,9 +62,6 @@ public class GameController {
         Location oltschiburg = new Location("Oltschiburg", "Du bist jetzt auf der \"Oltschiburg\" im Kanton \"Bern\" oder kurz \"BE\".");
         Location brienz = new Location("Brienz", "Du bist jetzt in \"Brienz\" im Kanton \"Bern\" oder kurz \"BE\".");
         Location gletscherschlucht_rosenlaui = new Location("Gletscherschlucht Rosenlaui", "Du bist jetzt in der \"Gletscherschlucht Rosenlaui\" im Kanton \"Bern\" oder kurz \"BE\".");
-        Location brienzersee = new Location("Brienzersee", "Du bist jetzt beim \"Brienzersee\" im Kanton \"Bern\" oder kurz \"BE\"");
-        Location panoramastrasse_glaubenbielen = new Location("Panoramastrasse Glaubenbielen", "Du bist jetzt bei der \"Panoramastrasse Glaubenbielen\" im Kanton \"Obwalden\" oder kurz \"OW\"");
-        Location brienzer_rothorn = new Location("Brienzer Rothorn", "Du bist jetzt beim \"Brienzer Rothorn\" im Kanton \"Bern\" oder kurz \"BE\"");
 
         // Von Älggialp
         aelggialp.setTwoWayExit(Direction.NORTH, rufi, 450.0);
@@ -165,14 +162,6 @@ public class GameController {
         // Von Balm bei Meiringen
         balm_bei_meiringen.setTwoWayExit(Direction.NORTH, lungern, 900.0);
         balm_bei_meiringen.setTwoWayExit(Direction.SOUTH, gletscherschlucht_rosenlaui, 840.0);
-        balm_bei_meiringen.setTwoWayExit(Direction.EAST, aareschlucht_meiringen, 390.0);
-        balm_bei_meiringen.setTwoWayExit(Direction.WEST, brienzersee, 540.0);
-
-        // Vom Berghaus Schönbüel
-        berghaus_schoenbueel.setTwoWayExit(Direction.EAST, lungern, 750.0);
-        berghaus_schoenbueel.setTwoWayExit(Direction.NORTH, panoramastrasse_glaubenbielen, 600.0);
-        berghaus_schoenbueel.setTwoWayExit(Direction.WEST, brienzer_rothorn, 510.0);
-        berghaus_schoenbueel.setTwoWayExit(Direction.SOUTH, brienzwiler, 600.0);
 
         this.currentLocation = aelggialp;
     }
