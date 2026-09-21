@@ -65,6 +65,14 @@ public class GameController {
         Location brienzersee = new Location("Brienzersee", "Du bist jetzt beim \"Brienzersee\" im Kanton \"Bern\" oder kurz \"BE\"");
         Location panoramastrasse_glaubenbielen = new Location("Panoramastrasse Glaubenbielen", "Du bist jetzt bei der \"Panoramastrasse Glaubenbielen\" im Kanton \"Obwalden\" oder kurz \"OW\"");
         Location brienzer_rothorn = new Location("Brienzer Rothorn", "Du bist jetzt beim \"Brienzer Rothorn\" im Kanton \"Bern\" oder kurz \"BE\"");
+        Location rhonegletscher = new Location("Rhonegletscher", "Du bist jetzt beim \"Rhonegletscher\" im Kanton \"Wallis\" oder kurz \"VS\"");
+        Location wassen = new Location("Wassen", "Du bist jetzt in \"Wassen\" im Kanton \"Uri\" oder kurz \"UR\"");
+        Location dallenwil = new Location("Dallenwil", "Du bist jetzt in \"Dallenwil\" im Kanton \"Nidwalden\" oder kurz \"NW\"");
+        Location erstfeld = new Location("Erstfeld", "Du bist jetzt in \"Erstfeld\" im Kanton \"Uri\" oder kurz \"UR\"");
+        Location laax = new Location("Laax", "Du bist jetzt in \"Laax\" im Kanton \"Graubünden\" oder kurz \"GR\"");
+        Location realp = new Location("Realp", "Du bist jetzt in \"Realp\" im Kanton \"Uri\" oder kurz \"UR\"");
+        Location gschletterkurve = new Location("Gletterkurve", "Du bist jetzt bei der Gschletterkurve im Kanton \"Bern\" oder kurz \"BE\"");
+        Location gurtnellen = new Location("Gurtnellen", "Du bist jetzt in \"Gurtnellen\" im Kanton \"Uri\" oder kurz \"UR\"");
 
         // Von Älggialp
         aelggialp.setTwoWayExit(Direction.NORTH, rufi, 450.0);
@@ -174,6 +182,30 @@ public class GameController {
         berghaus_schoenbueel.setTwoWayExit(Direction.WEST, brienzer_rothorn, 510.0);
         berghaus_schoenbueel.setTwoWayExit(Direction.SOUTH, brienzwiler, 600.0);
 
+        // Vom Giglistock
+        giglistock.setTwoWayExit(Direction.NORTH, truebsee, 1500.0);
+        giglistock.setTwoWayExit(Direction.WEST, aareschlucht_meiringen, 1800.0);
+        giglistock.setTwoWayExit(Direction.SOUTH, rhonegletscher, 1290.0);
+        giglistock.setTwoWayExit(Direction.EAST, wassen, 1500.0);
+
+        // Vom Engelberg
+        engelberg.setTwoWayExit(Direction.SOUTH, truebsee, 600.0);
+        engelberg.setTwoWayExit(Direction.NORTH, dallenwil, 1020.0);
+        engelberg.setTwoWayExit(Direction.WEST, gipfelkreuz_giswilerstock, 1800.0);
+        engelberg.setTwoWayExit(Direction.EAST, erstfeld, 1500.0);
+
+        // Von Silenen
+        silenen.setTwoWayExit(Direction.WEST, truebsee, 2850.0);
+        silenen.setTwoWayExit(Direction.EAST, laax, 3600.0);
+        silenen.setTwoWayExit(Direction.NORTH, erstfeld, 360.0);
+        silenen.setTwoWayExit(Direction.SOUTH, wassen, 900.0);
+
+        // Von Susten Passhöhe
+        susten_passhoehe.setTwoWayExit(Direction.NORTH, alpenresort_eienwaeldli, 2850.0);
+        susten_passhoehe.setTwoWayExit(Direction.SOUTH, realp, 1500.0);
+        susten_passhoehe.setTwoWayExit(Direction.WEST, gschletterkurve, 600.0);
+        susten_passhoehe.setTwoWayExit(Direction.EAST, gurtnellen, 1290.0);
+
         this.currentLocation = aelggialp;
     }
 
@@ -189,6 +221,7 @@ public class GameController {
         }
 
         System.out.println("Deine Mission ist es, aus der Schweiz zu fliehen, bevor die Zeit abläuft!");
+        System.out.println("Du nimmst extra einen Heissluftballoon damit du weniger gut erkannt wirst und auch schneller unterwegs bist.");
         System.out.println("Wenn die Zeit 0 Sekunden erreicht, scheiterst du bei deiner Flucht!");
         System.out.println("Du startest auf der \"Älggialp\" im Kanton \"Obwalden\".");
         System.out.println("Wenn du in eine bestimmte Richtung gehen möchtest, tippe sie in die Konsole ein.");
