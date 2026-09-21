@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GameController {
     private Location currentLocation;
-    private double startTime = 25920000.0;
+    private double startTime = 51840000.0;
     private double timeElapsed = 0.0;
 
     public GameController() {
@@ -230,7 +230,7 @@ public class GameController {
         System.out.println("Wenn die Zeit 0 Sekunden erreicht, scheiterst du bei deiner Flucht!");
         System.out.println("Du startest auf der \"Älggialp\" im Kanton \"Obwalden\".");
         System.out.println("Wenn du in eine bestimmte Richtung gehen möchtest, tippe sie in die Konsole ein.");
-        System.out.println("Du hast 5 Tage Zeit, um aus der Schweiz herauszukommen.");
+        System.out.println("Du hast 10 Tage Zeit (mit der Nacht), um aus der Schweiz herauszukommen.");
 
         List<String> validStart = Arrays.asList("start", "start");
         boolean start = false;
