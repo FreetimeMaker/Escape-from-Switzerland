@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class GameController {
     private Location currentLocation;
-    private double startTime = 216000.0;
+    private double startTime = 25920000.0;
     private double timeElapsed = 0.0;
 
     public GameController() {
@@ -73,6 +73,7 @@ public class GameController {
         Location realp = new Location("Realp", "Du bist jetzt in \"Realp\" im Kanton \"Uri\" oder kurz \"UR\"");
         Location gschletterkurve = new Location("Gletterkurve", "Du bist jetzt bei der Gschletterkurve im Kanton \"Bern\" oder kurz \"BE\"");
         Location gurtnellen = new Location("Gurtnellen", "Du bist jetzt in \"Gurtnellen\" im Kanton \"Uri\" oder kurz \"UR\"");
+        Location rhonestock = new Location("Rhonestock", "Du bist jetzt beim \"Rhonestock\" im Kanton \"Wallis\" oder kurz \"VS\"");
 
         // Von Älggialp
         aelggialp.setTwoWayExit(Direction.NORTH, rufi, 450.0);
@@ -206,6 +207,10 @@ public class GameController {
         susten_passhoehe.setTwoWayExit(Direction.WEST, gschletterkurve, 600.0);
         susten_passhoehe.setTwoWayExit(Direction.EAST, gurtnellen, 1290.0);
 
+        // Vom Bannalpsee
+        bannalpsee.setTwoWayExit(Direction.NORTH, alpenresort_eienwaeldli, 900.0);
+        bannalpsee.setTwoWayExit(Direction.SOUTH, rhonestock, 2250.0);
+
         this.currentLocation = aelggialp;
     }
 
@@ -225,7 +230,7 @@ public class GameController {
         System.out.println("Wenn die Zeit 0 Sekunden erreicht, scheiterst du bei deiner Flucht!");
         System.out.println("Du startest auf der \"Älggialp\" im Kanton \"Obwalden\".");
         System.out.println("Wenn du in eine bestimmte Richtung gehen möchtest, tippe sie in die Konsole ein.");
-        System.out.println("Du hast 2 Tage und 12 Stunden Zeit, um aus der Schweiz herauszukommen.");
+        System.out.println("Du hast 5 Tage Zeit, um aus der Schweiz herauszukommen.");
 
         List<String> validStart = Arrays.asList("start", "start");
         boolean start = false;
