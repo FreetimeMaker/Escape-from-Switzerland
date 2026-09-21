@@ -414,6 +414,50 @@ public class GameController {
                 "Du bist jetzt beim \"Rhonestock\" im Kanton \"Wallis\" oder kurz \"VS\"."
         );
 
+        Location attinghausen = new Location(
+                "Attinghausen",
+                "Du bist jetzt in \"Attinghausen\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location altzellen = new Location(
+                "Altzellen",
+                "Du bist jetzt in \"Altzellen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+        );
+
+        Location seewlialp = new Location(
+                "Seewlialp",
+                "Du bist jetzt bei der \"Seewlialp\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location seelisberg = new Location(
+                "Seelisberg",
+                "Du bist jetzt in \"Seelisberg\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location hospental = new Location(
+                "Hospental",
+                "Du bist jetzt in \"Hospental\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location melchsee = new Location(
+                "Melchsee",
+                "Du bist jetzt beim \"Melchsee\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location limmerensee = new Location(
+                "Limmerensee",
+                "Du bist jetzt beim \"Limmerensee\" im Kanton \"Glasrus\" oder kurz \"GL\"."
+        );
+
+        Location unesco_biospaehre_entlebuch = new Location(
+                "UNESCO Biospähre Entlebuch",
+                "Du bist jetzt bei der \"UNESCO Biosphäre Entlebuch\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location kriens = new Location(
+                "Kriens",
+                "Du bist jetzt in \"Kriens\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
 
         /*
          * ========================================================
@@ -556,6 +600,24 @@ public class GameController {
         // Vom Bannalpsee
         bannalpsee.setTwoWayExit(Direction.NORTH, alpenresort_eienwaeldli, 900.0);
         bannalpsee.setTwoWayExit(Direction.SOUTH, rhonestock, 2250.0);
+        bannalpsee.setTwoWayExit(Direction.EAST, attinghausen, 1110.0);
+        bannalpsee.setTwoWayExit(Direction.WEST, altzellen, 450.0);
+
+        // Vom Erstfelder Tal
+        erstfelder_tal.setTwoWayExit(Direction.WEST, alpenresort_eienwaeldli, 1500.0);
+        erstfelder_tal.setTwoWayExit(Direction.EAST, seewlialp, 750.0);
+        erstfelder_tal.setTwoWayExit(Direction.NORTH, seelisberg, 1800.0);
+        erstfelder_tal.setTwoWayExit(Direction.SOUTH, hospental, 2100.0);
+
+        // Vom Sportcamp Melchtal
+        sportcamp_melchtal.setTwoWayExit(Direction.NORTH, melchtal_waterfall, 240.0);
+        sportcamp_melchtal.setTwoWayExit(Direction.SOUTH, melchsee, 600.0);
+        sportcamp_melchtal.setTwoWayExit(Direction.EAST, limmerensee, 3900.0);
+        sportcamp_melchtal.setTwoWayExit(Direction.WEST, unesco_biospaehre_entlebuch, 1800.0);
+
+        // Vom Teufibach
+        teufibach.setTwoWayExit(Direction.SOUTH, melchtal_waterfall, 390.0);
+        teufibach.setTwoWayExit(Direction.NORTH, kriens, 1290.0);
 
         this.currentLocation = aelggialp;
     }
