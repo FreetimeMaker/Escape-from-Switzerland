@@ -469,6 +469,36 @@ public class GameController {
                 "Du bist jetzt beim \"Berghaus Klondike\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
+        Location panixersee = new Location(
+                "Panixersee",
+                "Du bist jetzt beim \"Panixersee\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location truebseebach_wasserfall = new Location(
+                "Trübseebach Wasserfall",
+                "Du bist jetzt beim \"Trübseebach Wasserfall\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location eugenibach = new Location(
+                "Eugenibach",
+                "Du bist jetzt beim \"Eugenibach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location schachen = new Location(
+                "Schachen",
+                "Du bist jetzt in \"Schachen\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location fluehli = new Location(
+                "Flühli",
+                "Du bist jetzt in \"Flühli\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location wolfenschiessen = new Location(
+                "Wolfenschiessen",
+                "Du bist jetzt in \"Wolfenschiessen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -632,6 +662,18 @@ public class GameController {
         teufibach.setTwoWayExit(Direction.EAST, berghaus_klondike, 1050.0);
 
         // Vom Eugenisee
+        eugenisee.setTwoWayExit(Direction.WEST, melchtal_waterfall, 1290.0);
+        eugenisee.setTwoWayExit(Direction.EAST, panixersee, 4500.0);
+        eugenisee.setTwoWayExit(Direction.SOUTH, truebseebach_wasserfall, 450.0);
+        eugenisee.setTwoWayExit(Direction.NORTH, eugenibach, 600.0);
+
+        // Vom Berghotel Langis
+        berghotel_langis.setTwoWayExit(Direction.SOUTH, honegg, 3150.0);
+        berghotel_langis.setTwoWayExit(Direction.NORTH, schachen, 1440.0);
+        berghotel_langis.setTwoWayExit(Direction.WEST, fluehli, 900.0);
+        berghotel_langis.setTwoWayExit(Direction.EAST, wolfenschiessen, 1800.0);
+
+        // Vom Gipfelkreuz Giswilerstock
 
         this.currentLocation = aelggialp;
     }
