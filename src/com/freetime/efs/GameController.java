@@ -499,6 +499,26 @@ public class GameController {
                 "Du bist jetzt in \"Wolfenschiessen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
+        Location soerenberg = new Location(
+                "Sörenberg",
+                "Du bist jetzt in \"Sörenberg\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location wetterhorn = new Location(
+                "Wetterhorn",
+                "Du bist jetzt beim \"Wetterhorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location hohwald = new Location(
+                "Hohwald",
+                "Du bist jetzt in \"Hohwald\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location menznau = new Location(
+                "Menznau",
+                "Du bist jetzt in \"Menznau\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -674,6 +694,19 @@ public class GameController {
         berghotel_langis.setTwoWayExit(Direction.EAST, wolfenschiessen, 1800.0);
 
         // Vom Gipfelkreuz Giswilerstock
+        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.NORTH, honegg, 3900.0);
+        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.EAST, engelberg, 1800.0);
+        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.WEST, soerenberg, 750.0);
+        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.SOUTH, wetterhorn, 3150.0);
+
+        // Vom Chessiloch in Flühli
+        chessiloch_fluehli.setTwoWayExit(Direction.EAST, honegg, 4050.0);
+        chessiloch_fluehli.setTwoWayExit(Direction.SOUTH, soerenberg, 450.0);
+        chessiloch_fluehli.setTwoWayExit(Direction.WEST, hohwald, 180.0);
+        chessiloch_fluehli.setTwoWayExit(Direction.NORTH, menznau, 2100.0);
+
+        // Von Hergiswil
+        hergiswil.setTwoWayExit(Direction.SOUTH, alpnach, 810.0);
 
         this.currentLocation = aelggialp;
     }
