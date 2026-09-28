@@ -519,6 +519,11 @@ public class GameController {
                 "Du bist jetzt in \"Menznau\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location horw = new Location(
+                "Horw",
+                "Du bist jetzt in \"Horw\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -707,6 +712,7 @@ public class GameController {
 
         // Von Hergiswil
         hergiswil.setTwoWayExit(Direction.SOUTH, alpnach, 810.0);
+        hergiswil.setTwoWayExit(Direction.NORTH, horw, 330.0);
 
         this.currentLocation = aelggialp;
     }
