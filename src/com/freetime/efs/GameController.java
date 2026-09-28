@@ -524,6 +524,16 @@ public class GameController {
                 "Du bist jetzt in \"Horw\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location entlebuch = new Location(
+                "Entlebuch",
+                "Du bist jetzt in \"Entlebuch\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location gersau = new Location(
+                "Gersau",
+                "Du bist jetzt in \"Gersau\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -713,6 +723,10 @@ public class GameController {
         // Von Hergiswil
         hergiswil.setTwoWayExit(Direction.SOUTH, alpnach, 810.0);
         hergiswil.setTwoWayExit(Direction.NORTH, horw, 330.0);
+        hergiswil.setTwoWayExit(Direction.WEST, entlebuch, 1800.0);
+        hergiswil.setTwoWayExit(Direction.EAST, gersau, 1500.0);
+
+        // Von Oberdorf
 
         this.currentLocation = aelggialp;
     }
