@@ -521,6 +521,26 @@ public class GameController {
             "Du bist jetzt in \"Madiswil\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location eggiwil = new Location(
+            "Eggiwil",
+            "Du bist jetzt in \"Eggiwil\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location worb = new Location(
+            "Worb",
+            "Du bist jetzt in \"Worb\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location hochdorf = new Location(
+            "Hochdorf",
+            "Du bist jetzt in \"Hochdorf\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location emmen = new Location(
+            "Emmen",
+            "Du bist jetzt in \"Emmen\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -611,11 +631,7 @@ public class GameController {
         alpnach.setTwoWayExit(Direction.SOUTH, sarnen, 750.0);
         alpnach.setTwoWayExit(Direction.NORTH, hergiswil, 810.0);
         alpnach.setTwoWayExit(Direction.EAST, oberdorf, 1200.0);
-        alpnach.setTwoWayExit(
-            Direction.WEST,
-            langnau_im_emmental,
-            4950.0
-        );
+        alpnach.setTwoWayExit(Direction.WEST, langnau_im_emmental, 4950.0);
 
         // Von Kerns
         kerns.setTwoWayExit(Direction.WEST, sarnen, 450.0);
@@ -822,7 +838,16 @@ public class GameController {
         // Von Langnau im Emmental
         langnau_im_emmental.setTwoWayExit(Direction.EAST, alpnach, 4958.0);
         langnau_im_emmental.setTwoWayExit(Direction.NORTH, madiswil, 2250.0);
-        
+        langnau_im_emmental.setTwoWayExit(Direction.SOUTH, eggiwil, 600.0);
+        langnau_im_emmental.setTwoWayExit(Direction.WEST, worb, 1500.0);
+
+        // Von Luzern
+        luzern.setTwoWayExit(Direction.SOUTH, kerns, 2100.0);
+        luzern.setTwoWayExit(Direction.EAST, meggen, 480.0);
+        luzern.setTwoWayExit(Direction.NORTH, hochdorf, 1200.0);
+        luzern.setTwoWayExit(Direction.WEST, emmen, 450);
+
+        // Von Glogghüs
 
         this.currentLocation = aelggialp;
     }
@@ -956,7 +981,7 @@ public class GameController {
 
             if (oldWeather != currentWeather) {
                 System.out.println();
-                System.out.println("🌤️ Das Wetter hat sich geändert:");
+                System.out.println("Das Wetter hat sich geändert:");
 
                 System.out.println(
                     oldWeather.getDisplayName() +
@@ -1122,7 +1147,7 @@ public class GameController {
             timeElapsed = startTime;
 
             System.out.println();
-            System.out.println("🛏️ Du legst dich schlafen...");
+            System.out.println("Du legst dich schlafen...");
 
             System.out.println(
                 "Während du schläfst, läuft deine verbleibende Zeit ab."
@@ -1132,7 +1157,7 @@ public class GameController {
         }
 
         System.out.println();
-        System.out.println("🛏️ Du legst dich schlafen...");
+        System.out.println("Du legst dich schlafen...");
 
         timeElapsed += sleepSeconds;
 
@@ -1447,7 +1472,7 @@ public class GameController {
             System.out.println();
 
             System.out.printf(
-                "🎈 Du bereitest den Flug von %s nach %s vor.%n",
+                "Du bereitest den Flug von %s nach %s vor.%n",
                 currentLocation.getName(),
                 next.getName()
             );
@@ -1485,7 +1510,7 @@ public class GameController {
             if (travelTime >= remainingTime) {
                 System.out.println();
 
-                System.out.println("🎈 Du startest deine Reise...");
+                System.out.println("Du startest deine Reise...");
 
                 timeElapsed = startTime;
 
@@ -1504,7 +1529,7 @@ public class GameController {
 
             System.out.println();
 
-            System.out.println("🎈 Du startest...");
+            System.out.println("Du startest...");
 
             timeElapsed += travelTime;
 
@@ -1589,7 +1614,7 @@ public class GameController {
                 "================================================"
             );
 
-            System.out.println("⏰ Die Zeit ist abgelaufen!");
+            System.out.println("Die Zeit ist abgelaufen!");
 
             System.out.println(
                 "Du hast es nicht rechtzeitig geschafft, aus der Schweiz zu fliehen."
