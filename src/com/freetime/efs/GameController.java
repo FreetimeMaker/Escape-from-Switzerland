@@ -1,6 +1,7 @@
 package com.freetime.efs;
 
 import com.freetime.efs.Direction;
+import com.sun.tools.javac.util.JCDiagnostic.DiagnosticFlag;
 import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.util.List;
@@ -94,6 +95,10 @@ public class GameController {
      * ORTE
      * ============================================================
      */
+
+    private static double minutes(double minutes) {
+        return minutes * 60;
+    }
 
     private void setupLocations() {
         Location aelggialp = new Location(
@@ -551,6 +556,46 @@ public class GameController {
             "Du bist jetzt in \"Brünig\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
+        Location meiringen = new Location(
+            "Meiringen",
+            "Du bist jetzt in \"Meiringen\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location sustlihuette = new Location(
+            "Sustlihütte",
+            "Du bist jetzt in der \"Sustlihütte\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location laaxer_stock = new Location(
+            "Laaxer Stock",
+            "Du bist jetzt beim \"Laaxer Stock\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location flueelen = new Location(
+            "Flüelen",
+            "Du bist jetzt in \"Flüelen\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location schattdorf = new Location(
+            "Schattdorf",
+            "Du bist jetzt in \"Schattdorf\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location sursee = new Location(
+            "Sursee",
+            "Du bist jetzt in \"Sursee\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location willisau = new Location(
+            "Willisau",
+            "Du bist jetzt in \"Willisau\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location finsterwald_bei_entlebuch = new Location(
+            "Finsterwald bei Entlebuch",
+            "Du bist jetzt in \"Finsterwald bei Entlebuch\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -558,308 +603,442 @@ public class GameController {
          */
 
         // Von Älggialp
-        aelggialp.setTwoWayExit(Direction.NORTH, rufi, 450.0);
-        aelggialp.setTwoWayExit(Direction.SOUTH, hasliberg, 1200.0);
-        aelggialp.setTwoWayExit(Direction.WEST, lungern, 1050.0);
-        aelggialp.setTwoWayExit(Direction.EAST, truebsee, 1500.0);
+        aelggialp.setTwoWayExit(Direction.NORTH, rufi, minutes(7.5));
+        aelggialp.setTwoWayExit(Direction.SOUTH, hasliberg, minutes(20));
+        aelggialp.setTwoWayExit(Direction.WEST, lungern, minutes(17.5));
+        aelggialp.setTwoWayExit(Direction.EAST, truebsee, minutes(25));
 
         // Von Rufi
-        rufi.setTwoWayExit(Direction.NORTH, giswil, 900.0);
-        rufi.setTwoWayExit(Direction.SOUTH, aelggialp, 450.0);
-        rufi.setTwoWayExit(Direction.WEST, lungern, 1200.0);
-        rufi.setTwoWayExit(Direction.EAST, alpenresort_eienwaeldli, 1950.0);
+        rufi.setTwoWayExit(Direction.NORTH, giswil, minutes(15));
+        rufi.setTwoWayExit(Direction.SOUTH, aelggialp, minutes(7.5));
+        rufi.setTwoWayExit(Direction.WEST, lungern, minutes(20));
+        rufi.setTwoWayExit(
+            Direction.EAST,
+            alpenresort_eienwaeldli,
+            minutes(32.5)
+        );
 
         // Von Giswil
-        giswil.setTwoWayExit(Direction.NORTH, sarnen, 1500.0);
-        giswil.setTwoWayExit(Direction.SOUTH, rufi, 900.0);
-        giswil.setTwoWayExit(Direction.EAST, melchtal_waterfall, 900.0);
-        giswil.setTwoWayExit(Direction.WEST, honegg, 450.0);
+        giswil.setTwoWayExit(Direction.NORTH, sarnen, minutes(25));
+        giswil.setTwoWayExit(Direction.SOUTH, rufi, minutes(15));
+        giswil.setTwoWayExit(Direction.EAST, melchtal_waterfall, minutes(15));
+        giswil.setTwoWayExit(Direction.WEST, honegg, minutes(7.5));
 
         // Von Sarnen
-        sarnen.setTwoWayExit(Direction.SOUTH, giswil, 1500.0);
-        sarnen.setTwoWayExit(Direction.NORTH, alpnach, 750.0);
-        sarnen.setTwoWayExit(Direction.EAST, kerns, 450.0);
-        sarnen.setTwoWayExit(Direction.WEST, stalden_sarnen, 570.0);
+        sarnen.setTwoWayExit(Direction.SOUTH, giswil, minutes(25));
+        sarnen.setTwoWayExit(Direction.NORTH, alpnach, minutes(12.5));
+        sarnen.setTwoWayExit(Direction.EAST, kerns, minutes(7.5));
+        sarnen.setTwoWayExit(Direction.WEST, stalden_sarnen, minutes(9.5));
 
         // Von Hasliberg
-        hasliberg.setTwoWayExit(Direction.NORTH, aelggialp, 1200.0);
-        hasliberg.setTwoWayExit(Direction.SOUTH, aareschlucht_meiringen, 690.0);
-        hasliberg.setTwoWayExit(Direction.EAST, maegisalp, 600.0);
-        hasliberg.setTwoWayExit(Direction.WEST, brienzwiler, 1050.0);
+        hasliberg.setTwoWayExit(Direction.NORTH, aelggialp, minutes(20));
+        hasliberg.setTwoWayExit(
+            Direction.SOUTH,
+            aareschlucht_meiringen,
+            minutes(11.5)
+        );
+        hasliberg.setTwoWayExit(Direction.EAST, maegisalp, minutes(10));
+        hasliberg.setTwoWayExit(Direction.WEST, brienzwiler, minutes(17.5));
 
         // Von Lungern
-        lungern.setTwoWayExit(Direction.EAST, aelggialp, 1050.0);
-        lungern.setTwoWayExit(Direction.NORTH, giswil, 900.0);
-        lungern.setTwoWayExit(Direction.SOUTH, balm_bei_meiringen, 900.0);
-        lungern.setTwoWayExit(Direction.WEST, berghaus_schoenbueel, 750.0);
+        lungern.setTwoWayExit(Direction.EAST, aelggialp, minutes(17.5));
+        lungern.setTwoWayExit(Direction.NORTH, giswil, minutes(15));
+        lungern.setTwoWayExit(Direction.SOUTH, balm_bei_meiringen, minutes(15));
+        lungern.setTwoWayExit(
+            Direction.WEST,
+            berghaus_schoenbueel,
+            minutes(12.5)
+        );
 
         // Von Trübsee
-        truebsee.setTwoWayExit(Direction.WEST, aelggialp, 1500.0);
-        truebsee.setTwoWayExit(Direction.SOUTH, giglistock, 1500.0);
-        truebsee.setTwoWayExit(Direction.NORTH, engelberg, 600.0);
-        truebsee.setTwoWayExit(Direction.EAST, silenen, 2850.0);
+        truebsee.setTwoWayExit(Direction.WEST, aelggialp, minutes(25));
+        truebsee.setTwoWayExit(Direction.SOUTH, giglistock, minutes(25));
+        truebsee.setTwoWayExit(Direction.NORTH, engelberg, minutes(10));
+        truebsee.setTwoWayExit(Direction.EAST, silenen, minutes(47.5));
 
         // Von Alpenresort Eienwäldli
-        alpenresort_eienwaeldli.setTwoWayExit(Direction.WEST, rufi, 1950.0);
+        alpenresort_eienwaeldli.setTwoWayExit(
+            Direction.WEST,
+            rufi,
+            minutes(32.5)
+        );
         alpenresort_eienwaeldli.setTwoWayExit(
             Direction.SOUTH,
             susten_passhoehe,
-            2850.0
+            minutes(47.5)
         );
         alpenresort_eienwaeldli.setTwoWayExit(
             Direction.NORTH,
             bannalpsee,
-            900.0
+            minutes(15)
         );
         alpenresort_eienwaeldli.setTwoWayExit(
             Direction.EAST,
             erstfelder_tal,
-            1500.0
+            minutes(25)
         );
 
         // Vom Melchtal Waterfall
-        melchtal_waterfall.setTwoWayExit(Direction.WEST, giswil, 900.0);
+        melchtal_waterfall.setTwoWayExit(Direction.WEST, giswil, minutes(15));
         melchtal_waterfall.setTwoWayExit(
             Direction.SOUTH,
             sportcamp_melchtal,
-            240.0
+            minutes(4)
         );
-        melchtal_waterfall.setTwoWayExit(Direction.NORTH, teufibach, 390.0);
-        melchtal_waterfall.setTwoWayExit(Direction.EAST, eugenisee, 1290.0);
+        melchtal_waterfall.setTwoWayExit(
+            Direction.NORTH,
+            teufibach,
+            minutes(6.5)
+        );
+        melchtal_waterfall.setTwoWayExit(
+            Direction.EAST,
+            eugenisee,
+            minutes(21.5)
+        );
 
         // Von Honegg
-        honegg.setTwoWayExit(Direction.EAST, giswil, 450.0);
-        honegg.setTwoWayExit(Direction.NORTH, berghotel_langis, 3150.0);
+        honegg.setTwoWayExit(Direction.EAST, giswil, minutes(7.5));
+        honegg.setTwoWayExit(Direction.NORTH, berghotel_langis, minutes(52.5));
         honegg.setTwoWayExit(
             Direction.SOUTH,
             gipfelkreuz_giswilerstock,
-            3900.0
+            minutes(65)
         );
-        honegg.setTwoWayExit(Direction.WEST, chessiloch_fluehli, 4050.0);
+        honegg.setTwoWayExit(Direction.WEST, chessiloch_fluehli, minutes(67.5));
 
         // Von Alpnach
-        alpnach.setTwoWayExit(Direction.SOUTH, sarnen, 750.0);
-        alpnach.setTwoWayExit(Direction.NORTH, hergiswil, 810.0);
-        alpnach.setTwoWayExit(Direction.EAST, oberdorf, 1200.0);
-        alpnach.setTwoWayExit(Direction.WEST, langnau_im_emmental, 4950.0);
+        alpnach.setTwoWayExit(Direction.SOUTH, sarnen, minutes(12.5));
+        alpnach.setTwoWayExit(Direction.NORTH, hergiswil, minutes(13.5));
+        alpnach.setTwoWayExit(Direction.EAST, oberdorf, minutes(20));
+        alpnach.setTwoWayExit(
+            Direction.WEST,
+            langnau_im_emmental,
+            minutes(82.5)
+        );
 
         // Von Kerns
-        kerns.setTwoWayExit(Direction.WEST, sarnen, 450.0);
-        kerns.setTwoWayExit(Direction.NORTH, luzern, 2100.0);
-        kerns.setTwoWayExit(Direction.SOUTH, glogghues, 1800.0);
-        kerns.setTwoWayExit(Direction.EAST, altdorf, 2550.0);
+        kerns.setTwoWayExit(Direction.WEST, sarnen, minutes(7.5));
+        kerns.setTwoWayExit(Direction.NORTH, luzern, minutes(35));
+        kerns.setTwoWayExit(Direction.SOUTH, glogghues, minutes(30));
+        kerns.setTwoWayExit(Direction.EAST, altdorf, minutes(42.5));
 
         // Von Stalden
-        stalden_sarnen.setTwoWayExit(Direction.EAST, sarnen, 570.0);
-        stalden_sarnen.setTwoWayExit(Direction.NORTH, sempachersee, 4050.0);
-        stalden_sarnen.setTwoWayExit(Direction.WEST, rickhubel, 1200.0);
-        stalden_sarnen.setTwoWayExit(Direction.SOUTH, wilen_sarnen, 240.0);
+        stalden_sarnen.setTwoWayExit(Direction.EAST, sarnen, minutes(9.5));
+        stalden_sarnen.setTwoWayExit(
+            Direction.NORTH,
+            sempachersee,
+            minutes(67.5)
+        );
+        stalden_sarnen.setTwoWayExit(Direction.WEST, rickhubel, minutes(20));
+        stalden_sarnen.setTwoWayExit(Direction.SOUTH, wilen_sarnen, minutes(4));
 
         // Von Aareschlucht
-        aareschlucht_meiringen.setTwoWayExit(Direction.NORTH, hasliberg, 690.0);
+        aareschlucht_meiringen.setTwoWayExit(
+            Direction.NORTH,
+            hasliberg,
+            minutes(11.5)
+        );
         aareschlucht_meiringen.setTwoWayExit(
             Direction.SOUTH,
             reichenbachfall,
-            180.0
+            minutes(3)
         );
         aareschlucht_meiringen.setTwoWayExit(
             Direction.WEST,
             balm_bei_meiringen,
-            390.0
+            minutes(6.5)
         );
         aareschlucht_meiringen.setTwoWayExit(
             Direction.EAST,
             giglistock,
-            1800.0
+            minutes(30)
         );
 
         // Von Mägisalp
-        maegisalp.setTwoWayExit(Direction.WEST, hasliberg, 600.0);
-        maegisalp.setTwoWayExit(Direction.NORTH, hochstollen, 390.0);
-        maegisalp.setTwoWayExit(Direction.EAST, taelli_klettersteig, 900.0);
-        maegisalp.setTwoWayExit(Direction.SOUTH, innertkirchen, 600.0);
+        maegisalp.setTwoWayExit(Direction.WEST, hasliberg, minutes(10));
+        maegisalp.setTwoWayExit(Direction.NORTH, hochstollen, minutes(6.5));
+        maegisalp.setTwoWayExit(
+            Direction.EAST,
+            taelli_klettersteig,
+            minutes(15)
+        );
+        maegisalp.setTwoWayExit(Direction.SOUTH, innertkirchen, minutes(10));
 
         // Von Brienzwiler
-        brienzwiler.setTwoWayExit(Direction.EAST, hasliberg, 1050.0);
-        brienzwiler.setTwoWayExit(Direction.NORTH, berghaus_schoenbueel, 600.0);
-        brienzwiler.setTwoWayExit(Direction.SOUTH, oltschiburg, 480.0);
-        brienzwiler.setTwoWayExit(Direction.WEST, brienz, 600.0);
+        brienzwiler.setTwoWayExit(Direction.EAST, hasliberg, minutes(17.5));
+        brienzwiler.setTwoWayExit(
+            Direction.NORTH,
+            berghaus_schoenbueel,
+            minutes(10)
+        );
+        brienzwiler.setTwoWayExit(Direction.SOUTH, oltschiburg, minutes(8));
+        brienzwiler.setTwoWayExit(Direction.WEST, brienz, minutes(10));
 
         // Von Balm bei Meiringen
-        balm_bei_meiringen.setTwoWayExit(Direction.NORTH, lungern, 900.0);
+        balm_bei_meiringen.setTwoWayExit(Direction.NORTH, lungern, minutes(15));
         balm_bei_meiringen.setTwoWayExit(
             Direction.SOUTH,
             gletscherschlucht_rosenlaui,
-            840.0
+            minutes(14)
         );
         balm_bei_meiringen.setTwoWayExit(
             Direction.EAST,
             aareschlucht_meiringen,
-            390.0
+            minutes(6.5)
         );
-        balm_bei_meiringen.setTwoWayExit(Direction.WEST, brienzersee, 540.0);
+        balm_bei_meiringen.setTwoWayExit(
+            Direction.WEST,
+            brienzersee,
+            minutes(9)
+        );
 
         // Vom Berghaus Schönbüel
-        berghaus_schoenbueel.setTwoWayExit(Direction.EAST, lungern, 750.0);
+        berghaus_schoenbueel.setTwoWayExit(
+            Direction.EAST,
+            lungern,
+            minutes(12.5)
+        );
         berghaus_schoenbueel.setTwoWayExit(
             Direction.NORTH,
             panoramastrasse_glaubenbielen,
-            600.0
+            minutes(10)
         );
         berghaus_schoenbueel.setTwoWayExit(
             Direction.WEST,
             brienzer_rothorn,
-            510.0
+            minutes(8.5)
         );
-        berghaus_schoenbueel.setTwoWayExit(Direction.SOUTH, brienzwiler, 600.0);
+        berghaus_schoenbueel.setTwoWayExit(
+            Direction.SOUTH,
+            brienzwiler,
+            minutes(10)
+        );
 
         // Vom Giglistock
-        giglistock.setTwoWayExit(Direction.NORTH, truebsee, 1500.0);
+        giglistock.setTwoWayExit(Direction.NORTH, truebsee, minutes(25));
         giglistock.setTwoWayExit(
             Direction.WEST,
             aareschlucht_meiringen,
-            1800.0
+            minutes(30)
         );
-        giglistock.setTwoWayExit(Direction.SOUTH, rhonegletscher, 1290.0);
-        giglistock.setTwoWayExit(Direction.EAST, wassen, 1500.0);
+        giglistock.setTwoWayExit(
+            Direction.SOUTH,
+            rhonegletscher,
+            minutes(21.5)
+        );
+        giglistock.setTwoWayExit(Direction.EAST, wassen, minutes(25));
 
         // Von Engelberg
-        engelberg.setTwoWayExit(Direction.SOUTH, truebsee, 600.0);
-        engelberg.setTwoWayExit(Direction.NORTH, dallenwil, 1020.0);
+        engelberg.setTwoWayExit(Direction.SOUTH, truebsee, minutes(10));
+        engelberg.setTwoWayExit(Direction.NORTH, dallenwil, minutes(17));
         engelberg.setTwoWayExit(
             Direction.WEST,
             gipfelkreuz_giswilerstock,
-            1800.0
+            minutes(30)
         );
-        engelberg.setTwoWayExit(Direction.EAST, erstfeld, 1500.0);
+        engelberg.setTwoWayExit(Direction.EAST, erstfeld, minutes(25));
 
         // Von Silenen
-        silenen.setTwoWayExit(Direction.WEST, truebsee, 2850.0);
-        silenen.setTwoWayExit(Direction.EAST, laax, 3600.0);
-        silenen.setTwoWayExit(Direction.NORTH, erstfeld, 360.0);
-        silenen.setTwoWayExit(Direction.SOUTH, wassen, 900.0);
+        silenen.setTwoWayExit(Direction.WEST, truebsee, minutes(47.5));
+        silenen.setTwoWayExit(Direction.EAST, laax, minutes(60));
+        silenen.setTwoWayExit(Direction.NORTH, erstfeld, minutes(6));
+        silenen.setTwoWayExit(Direction.SOUTH, wassen, minutes(15));
 
         // Von Susten Passhöhe
         susten_passhoehe.setTwoWayExit(
             Direction.NORTH,
             alpenresort_eienwaeldli,
-            2850.0
+            minutes(47.5)
         );
-        susten_passhoehe.setTwoWayExit(Direction.SOUTH, realp, 1500.0);
-        susten_passhoehe.setTwoWayExit(Direction.WEST, gschletterkurve, 600.0);
-        susten_passhoehe.setTwoWayExit(Direction.EAST, gurtnellen, 1290.0);
+        susten_passhoehe.setTwoWayExit(Direction.SOUTH, realp, minutes(25));
+        susten_passhoehe.setTwoWayExit(
+            Direction.WEST,
+            gschletterkurve,
+            minutes(10)
+        );
+        susten_passhoehe.setTwoWayExit(
+            Direction.EAST,
+            gurtnellen,
+            minutes(21.5)
+        );
 
         // Vom Bannalpsee
         bannalpsee.setTwoWayExit(
             Direction.NORTH,
             alpenresort_eienwaeldli,
-            900.0
+            minutes(15)
         );
-        bannalpsee.setTwoWayExit(Direction.SOUTH, rhonestock, 2250.0);
-        bannalpsee.setTwoWayExit(Direction.EAST, attinghausen, 1110.0);
-        bannalpsee.setTwoWayExit(Direction.WEST, altzellen, 450.0);
+        bannalpsee.setTwoWayExit(Direction.SOUTH, rhonestock, minutes(37.5));
+        bannalpsee.setTwoWayExit(Direction.EAST, attinghausen, minutes(18.5));
+        bannalpsee.setTwoWayExit(Direction.WEST, altzellen, minutes(7.5));
 
         // Vom Erstfelder Tal
         erstfelder_tal.setTwoWayExit(
             Direction.WEST,
             alpenresort_eienwaeldli,
-            1500.0
+            minutes(25)
         );
-        erstfelder_tal.setTwoWayExit(Direction.EAST, seewlialp, 750.0);
-        erstfelder_tal.setTwoWayExit(Direction.NORTH, seelisberg, 1800.0);
-        erstfelder_tal.setTwoWayExit(Direction.SOUTH, hospental, 2100.0);
+        erstfelder_tal.setTwoWayExit(Direction.EAST, seewlialp, minutes(12.5));
+        erstfelder_tal.setTwoWayExit(Direction.NORTH, seelisberg, minutes(30));
+        erstfelder_tal.setTwoWayExit(Direction.SOUTH, hospental, minutes(35));
 
         // Vom Sportcamp Melchtal
         sportcamp_melchtal.setTwoWayExit(
             Direction.NORTH,
             melchtal_waterfall,
-            240.0
+            minutes(4)
         );
-        sportcamp_melchtal.setTwoWayExit(Direction.SOUTH, melchsee, 600.0);
-        sportcamp_melchtal.setTwoWayExit(Direction.EAST, limmerensee, 3900.0);
+        sportcamp_melchtal.setTwoWayExit(
+            Direction.SOUTH,
+            melchsee,
+            minutes(10)
+        );
+        sportcamp_melchtal.setTwoWayExit(
+            Direction.EAST,
+            limmerensee,
+            minutes(65)
+        );
         sportcamp_melchtal.setTwoWayExit(
             Direction.WEST,
             unesco_biospaehre_entlebuch,
-            1800.0
+            minutes(30)
         );
 
         // Vom Teufibach
-        teufibach.setTwoWayExit(Direction.SOUTH, melchtal_waterfall, 390.0);
-        teufibach.setTwoWayExit(Direction.NORTH, kriens, 1290.0);
-        teufibach.setTwoWayExit(Direction.WEST, heftihuette, 2100.0);
-        teufibach.setTwoWayExit(Direction.EAST, berghaus_klondike, 1050.0);
+        teufibach.setTwoWayExit(
+            Direction.SOUTH,
+            melchtal_waterfall,
+            minutes(6.5)
+        );
+        teufibach.setTwoWayExit(Direction.NORTH, kriens, minutes(21.5));
+        teufibach.setTwoWayExit(Direction.WEST, heftihuette, minutes(35));
+        teufibach.setTwoWayExit(
+            Direction.EAST,
+            berghaus_klondike,
+            minutes(17.5)
+        );
 
         // Vom Eugenisee
-        eugenisee.setTwoWayExit(Direction.WEST, melchtal_waterfall, 1290.0);
-        eugenisee.setTwoWayExit(Direction.EAST, panixersee, 4500.0);
+        eugenisee.setTwoWayExit(
+            Direction.WEST,
+            melchtal_waterfall,
+            minutes(21.5)
+        );
+        eugenisee.setTwoWayExit(Direction.EAST, panixersee, minutes(75));
         eugenisee.setTwoWayExit(
             Direction.SOUTH,
             truebseebach_wasserfall,
-            450.0
+            minutes(7.5)
         );
-        eugenisee.setTwoWayExit(Direction.NORTH, eugenibach, 600.0);
+        eugenisee.setTwoWayExit(Direction.NORTH, eugenibach, minutes(10));
 
         // Vom Berghotel Langis
-        berghotel_langis.setTwoWayExit(Direction.SOUTH, honegg, 3150.0);
-        berghotel_langis.setTwoWayExit(Direction.NORTH, schachen, 1440.0);
-        berghotel_langis.setTwoWayExit(Direction.WEST, fluehli, 900.0);
-        berghotel_langis.setTwoWayExit(Direction.EAST, wolfenschiessen, 1800.0);
+        berghotel_langis.setTwoWayExit(Direction.SOUTH, honegg, minutes(52.5));
+        berghotel_langis.setTwoWayExit(Direction.NORTH, schachen, minutes(24));
+        berghotel_langis.setTwoWayExit(Direction.WEST, fluehli, minutes(15));
+        berghotel_langis.setTwoWayExit(
+            Direction.EAST,
+            wolfenschiessen,
+            minutes(30)
+        );
 
         // Vom Gipfelkreuz Giswilerstock
         gipfelkreuz_giswilerstock.setTwoWayExit(
             Direction.NORTH,
             honegg,
-            3900.0
+            minutes(65)
         );
         gipfelkreuz_giswilerstock.setTwoWayExit(
             Direction.EAST,
             engelberg,
-            1800.0
+            minutes(30)
         );
         gipfelkreuz_giswilerstock.setTwoWayExit(
             Direction.WEST,
             soerenberg,
-            750.0
+            minutes(12.5)
         );
         gipfelkreuz_giswilerstock.setTwoWayExit(
             Direction.SOUTH,
             wetterhorn,
-            3150.0
+            minutes(52.5)
         );
 
         // Vom Chessiloch in Flühli
-        chessiloch_fluehli.setTwoWayExit(Direction.EAST, honegg, 4050.0);
-        chessiloch_fluehli.setTwoWayExit(Direction.SOUTH, soerenberg, 450.0);
-        chessiloch_fluehli.setTwoWayExit(Direction.WEST, hohwald, 180.0);
-        chessiloch_fluehli.setTwoWayExit(Direction.NORTH, menznau, 2100.0);
+        chessiloch_fluehli.setTwoWayExit(Direction.EAST, honegg, minutes(67.5));
+        chessiloch_fluehli.setTwoWayExit(
+            Direction.SOUTH,
+            soerenberg,
+            minutes(7.5)
+        );
+        chessiloch_fluehli.setTwoWayExit(Direction.WEST, hohwald, minutes(3));
+        chessiloch_fluehli.setTwoWayExit(Direction.NORTH, menznau, minutes(35));
 
         // Von Hergiswil
-        hergiswil.setTwoWayExit(Direction.SOUTH, alpnach, 810.0);
-        hergiswil.setTwoWayExit(Direction.NORTH, horw, 330.0);
-        hergiswil.setTwoWayExit(Direction.WEST, entlebuch, 1800.0);
-        hergiswil.setTwoWayExit(Direction.EAST, gersau, 1500.0);
+        hergiswil.setTwoWayExit(Direction.SOUTH, alpnach, minutes(13.5));
+        hergiswil.setTwoWayExit(Direction.NORTH, horw, minutes(5.5));
+        hergiswil.setTwoWayExit(Direction.WEST, entlebuch, minutes(30));
+        hergiswil.setTwoWayExit(Direction.EAST, gersau, minutes(25));
 
         // Von Oberdorf
-        oberdorf.setTwoWayExit(Direction.WEST, alpnach, 1200.0);
-        oberdorf.setTwoWayExit(Direction.NORTH, meggen, 1050.0);
-        oberdorf.setTwoWayExit(Direction.SOUTH, dallenwil, 180.0);
-        oberdorf.setTwoWayExit(Direction.EAST, emmetten, 900);
+        oberdorf.setTwoWayExit(Direction.WEST, alpnach, minutes(20));
+        oberdorf.setTwoWayExit(Direction.NORTH, meggen, minutes(17.5));
+        oberdorf.setTwoWayExit(Direction.SOUTH, dallenwil, minutes(3));
+        oberdorf.setTwoWayExit(Direction.EAST, emmetten, minutes(15));
 
         // Von Langnau im Emmental
-        langnau_im_emmental.setTwoWayExit(Direction.EAST, alpnach, 4958.0);
-        langnau_im_emmental.setTwoWayExit(Direction.NORTH, madiswil, 2250.0);
-        langnau_im_emmental.setTwoWayExit(Direction.SOUTH, eggiwil, 600.0);
-        langnau_im_emmental.setTwoWayExit(Direction.WEST, worb, 1500.0);
+        langnau_im_emmental.setTwoWayExit(
+            Direction.EAST,
+            alpnach,
+            minutes(82) + 38
+        );
+        langnau_im_emmental.setTwoWayExit(
+            Direction.NORTH,
+            madiswil,
+            minutes(37.5)
+        );
+        langnau_im_emmental.setTwoWayExit(
+            Direction.SOUTH,
+            eggiwil,
+            minutes(10)
+        );
+        langnau_im_emmental.setTwoWayExit(Direction.WEST, worb, minutes(25));
 
         // Von Luzern
-        luzern.setTwoWayExit(Direction.SOUTH, kerns, 2100.0);
-        luzern.setTwoWayExit(Direction.EAST, meggen, 480.0);
-        luzern.setTwoWayExit(Direction.NORTH, hochdorf, 1200.0);
-        luzern.setTwoWayExit(Direction.WEST, emmen, 450);
+        luzern.setTwoWayExit(Direction.SOUTH, kerns, minutes(35));
+        luzern.setTwoWayExit(Direction.EAST, meggen, minutes(8));
+        luzern.setTwoWayExit(Direction.NORTH, hochdorf, minutes(20));
+        luzern.setTwoWayExit(Direction.WEST, emmen, minutes(7.5));
 
         // Von Glogghüs
-        glogghues.setTwoWayExit(Direction.NORTH, kerns, 1800.0);
-        glogghues.setTwoWayExit(Direction.WEST, neighbor, travelTime);
+        glogghues.setTwoWayExit(Direction.NORTH, kerns, minutes(30));
+        glogghues.setTwoWayExit(Direction.WEST, bruenig, minutes(15));
+        glogghues.setTwoWayExit(Direction.SOUTH, meiringen, minutes(12.5));
+        glogghues.setTwoWayExit(Direction.EAST, sustlihuette, minutes(17.5));
+
+        // Von Altdorf
+        altdorf.setTwoWayExit(Direction.WEST, kerns, minutes(42.5));
+        altdorf.setTwoWayExit(Direction.EAST, laaxer_stock, minutes(37.5));
+        altdorf.setTwoWayExit(Direction.NORTH, flueelen, minutes(4));
+        altdorf.setTwoWayExit(Direction.SOUTH, schattdorf, minutes(3));
+
+        // Vom Sempachersee
+        sempachersee.setTwoWayExit(
+            Direction.SOUTH,
+            stalden_sarnen,
+            minutes(67.5)
+        );
+        sempachersee.setTwoWayExit(Direction.NORTH, sursee, minutes(7.5));
+        sempachersee.setTwoWayExit(Direction.WEST, willisau, minutes(17.5));
+        sempachersee.setTwoWayExit(Direction.EAST, hochdorf, minutes(15));
+
+        // Von Rickhubel
+        rickhubel.setTwoWayExit(Direction.EAST, stalden_sarnen, minutes(20));
+        rickhubel.setTwoWayExit(
+            Direction.NORTH,
+            finsterwald_bei_entlebuch,
+            minutes(12.5)
+        );
 
         this.currentLocation = aelggialp;
     }
