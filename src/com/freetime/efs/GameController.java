@@ -1,10 +1,13 @@
 package com.freetime.efs;
 
 import java.io.Console;
+import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import com.freetime.efs.Direction;
 
 public class GameController {
 
@@ -505,6 +508,8 @@ public class GameController {
             "Du bist jetzt in \"Gersau\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
         );
 
+        Location meggen = new Location("Meggen", "Du bist jetzt in \"Meggen\" im Kanton \"Luzern\" oder kurz \"LU\".");
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -798,6 +803,9 @@ public class GameController {
         hergiswil.setTwoWayExit(Direction.EAST, gersau, 1500.0);
 
         // Von Oberdorf
+        oberdorf.setTwoWayExit(Direction.WEST, alpnach, 1200.0);
+        oberdorf.setTwoWayExit(Direction.NORTH, meggen, 1050.0);
+        oberdorf.setTwoWayExit(Direction.SOUTH, dallenwil, 180.0);
 
         this.currentLocation = aelggialp;
     }
