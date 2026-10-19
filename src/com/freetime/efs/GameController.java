@@ -1039,6 +1039,11 @@ public class GameController {
             finsterwald_bei_entlebuch,
             minutes(12.5)
         );
+        rickhubel.setTwoWayExit(
+            Direction.SOUTH,
+            unesco_biospaehre_entlebuch,
+            minutes(15)
+        );
 
         this.currentLocation = aelggialp;
     }
