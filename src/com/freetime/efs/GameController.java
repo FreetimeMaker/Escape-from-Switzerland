@@ -541,6 +541,16 @@ public class GameController {
             "Du bist jetzt in \"Emmen\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location burgdorf = new Location(
+            "Burgdorf",
+            "Du bist jetzt in \"Burgdorf\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location bruenig = new Location(
+            "Brünig",
+            "Du bist jetzt in \"Brünig\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -848,6 +858,8 @@ public class GameController {
         luzern.setTwoWayExit(Direction.WEST, emmen, 450);
 
         // Von Glogghüs
+        glogghues.setTwoWayExit(Direction.NORTH, kerns, 1800.0);
+        glogghues.setTwoWayExit(Direction.WEST, neighbor, travelTime);
 
         this.currentLocation = aelggialp;
     }
