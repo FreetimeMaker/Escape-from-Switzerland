@@ -1,13 +1,11 @@
 package com.freetime.efs;
 
-import java.io.Console;
+import com.freetime.efs.Direction;
 import java.time.DayOfWeek;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
-
-import com.freetime.efs.Direction;
 
 public class GameController {
 
@@ -42,17 +40,17 @@ public class GameController {
      */
 
     private enum Weather {
-        CLEAR("☀️ Klar", 1.00, true),
+        CLEAR("Klar", 1.00, true),
 
-        CLOUDY("☁️ Bewölkt", 1.00, true),
+        CLOUDY("Bewölkt", 1.00, true),
 
-        RAIN("🌧️ Regen", 1.15, true),
+        RAIN("Regen", 1.15, true),
 
-        FOG("🌫️ Nebel", 1.25, true),
+        FOG("Nebel", 1.25, true),
 
-        STRONG_WIND("💨 Starker Wind", 1.40, true),
+        STRONG_WIND("Starker Wind", 1.40, true),
 
-        THUNDERSTORM("⛈️ Gewitter", 1.00, false);
+        THUNDERSTORM("Gewitter", 1.00, false);
 
         private final String displayName;
         private final double travelMultiplier;
@@ -258,9 +256,9 @@ public class GameController {
             "Du bist jetzt in \"Oberdorf\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
-        Location regionalmuseum_chueechlihus = new Location(
-            "Regionalmuseum Chüechlihus",
-            "Du bist jetzt im \"Regionalmuseum Chüechlihus\" im Kanton \"Bern\" oder kurz \"BE\"."
+        Location langnau_im_emmental = new Location(
+            "Langnau im Emmental",
+            "Du bist jetzt in \"Langnau im Emmental\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location luzern = new Location(
@@ -508,7 +506,20 @@ public class GameController {
             "Du bist jetzt in \"Gersau\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
         );
 
-        Location meggen = new Location("Meggen", "Du bist jetzt in \"Meggen\" im Kanton \"Luzern\" oder kurz \"LU\".");
+        Location meggen = new Location(
+            "Meggen",
+            "Du bist jetzt in \"Meggen\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location emmetten = new Location(
+            "Emmetten",
+            "Du bist jetzt in \"Emmetten\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+        );
+
+        Location madiswil = new Location(
+            "Madiswil",
+            "Du bist jetzt in \"Madiswil\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
 
         /*
          * ========================================================
@@ -602,7 +613,7 @@ public class GameController {
         alpnach.setTwoWayExit(Direction.EAST, oberdorf, 1200.0);
         alpnach.setTwoWayExit(
             Direction.WEST,
-            regionalmuseum_chueechlihus,
+            langnau_im_emmental,
             4950.0
         );
 
@@ -806,6 +817,12 @@ public class GameController {
         oberdorf.setTwoWayExit(Direction.WEST, alpnach, 1200.0);
         oberdorf.setTwoWayExit(Direction.NORTH, meggen, 1050.0);
         oberdorf.setTwoWayExit(Direction.SOUTH, dallenwil, 180.0);
+        oberdorf.setTwoWayExit(Direction.EAST, emmetten, 900);
+
+        // Von Langnau im Emmental
+        langnau_im_emmental.setTwoWayExit(Direction.EAST, alpnach, 4958.0);
+        langnau_im_emmental.setTwoWayExit(Direction.NORTH, madiswil, 2250.0);
+        
 
         this.currentLocation = aelggialp;
     }
@@ -840,18 +857,18 @@ public class GameController {
         int hour = getCurrentHour();
 
         if (hour >= 5 && hour < 8) {
-            return "🌅 Morgen";
+            return "Morgen";
         }
 
         if (hour >= 8 && hour < 18) {
-            return "☀️ Tag";
+            return "Tag";
         }
 
         if (hour >= 18 && hour < 21) {
-            return "🌆 Abend";
+            return "Abend";
         }
 
-        return "🌙 Nacht";
+        return "Nacht";
     }
 
     private boolean isNight() {
@@ -1063,16 +1080,16 @@ public class GameController {
         System.out.println("Wetter: " + currentWeather.getDisplayName());
 
         if (currentWeather == Weather.RAIN) {
-            System.out.println("🌧️ Durch den Regen dauern Reisen 15 % länger.");
+            System.out.println("Durch den Regen dauern Reisen 15 % länger.");
         } else if (currentWeather == Weather.FOG) {
-            System.out.println("🌫️ Durch den Nebel dauern Reisen 25 % länger.");
+            System.out.println("Durch den Nebel dauern Reisen 25 % länger.");
         } else if (currentWeather == Weather.STRONG_WIND) {
             System.out.println(
-                "💨 Durch den starken Wind dauern Reisen 40 % länger."
+                "Durch den starken Wind dauern Reisen 40 % länger."
             );
         } else if (currentWeather == Weather.THUNDERSTORM) {
             System.out.println(
-                "⛈️ Bei diesem Gewitter kannst du nicht mit dem Heissluftballon fliegen."
+                "Bei diesem Gewitter kannst du nicht mit dem Heissluftballon fliegen."
             );
         }
     }
@@ -1126,7 +1143,7 @@ public class GameController {
         updateWeather();
 
         System.out.printf(
-            "🌅 Du wachst an Tag %d um %02d:%02d Uhr auf.%n",
+            "Du wachst an Tag %d um %02d:%02d Uhr auf.%n",
             getCurrentDay(),
             getCurrentHour(),
             getCurrentMinute()
@@ -1142,7 +1159,7 @@ public class GameController {
             timeElapsed = startTime;
 
             System.out.println();
-            System.out.println("⏳ Du wartest...");
+            System.out.println("Du wartest...");
 
             System.out.println(
                 "Während du wartest, läuft deine verbleibende Zeit ab."
@@ -1156,14 +1173,14 @@ public class GameController {
         int oldDay = getCurrentDay();
 
         System.out.println();
-        System.out.println("⏳ Du wartest 30 Minuten.");
+        System.out.println("Du wartest 30 Minuten.");
 
         timeElapsed += WAIT_TIME;
 
         updateWeather();
 
         if (getCurrentDay() > oldDay) {
-            System.out.printf("🌅 Tag %d hat begonnen!%n", getCurrentDay());
+            System.out.printf("Tag %d hat begonnen!%n", getCurrentDay());
         }
 
         if (!oldDayPhase.equals(getDayPhase())) {
@@ -1193,19 +1210,22 @@ public class GameController {
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
-        Console console = System.console();
-
         System.out.println(
             "Hallo und willkommen bei \"Escape from Switzerland\"!"
         );
 
-        if (console != null) {
-            String eingabe = console.readLine(
-                "Gib einen Namen ein, um fortzufahren: "
-            );
+        String name;
 
-            System.out.println("Willkommen: " + eingabe);
-        }
+        do {
+            System.out.print("Gib einen Namen ein, um fortzufahren: ");
+            name = scanner.nextLine().trim();
+
+            if (name.isEmpty()) {
+                System.out.println("Der Name darf nicht leer sein.");
+            }
+        } while (name.isEmpty());
+
+        System.out.println("Willkommen: " + name);
 
         System.out.println();
 
@@ -1277,7 +1297,7 @@ public class GameController {
                 "================================================"
             );
 
-            System.out.println("📍 Ort: " + currentLocation.getName());
+            System.out.println("Ort: " + currentLocation.getName());
 
             System.out.println(currentLocation.getDescription());
 
@@ -1288,12 +1308,12 @@ public class GameController {
             printWeather();
 
             System.out.println(
-                "⏳ Verbleibende Zeit: " + formatRemainingTime(remainingTime)
+                "Verbleibende Zeit: " + formatRemainingTime(remainingTime)
             );
 
             if (isNight()) {
                 System.out.println(
-                    "🌙 Reisen dauern wegen der Dunkelheit 20 % länger."
+                    "Reisen dauern wegen der Dunkelheit 20 % länger."
                 );
             }
 
@@ -1373,7 +1393,7 @@ public class GameController {
 
             if (!currentWeather.isTravelAllowed()) {
                 System.out.println();
-                System.out.println("⛈️ Das Gewitter ist zu gefährlich!");
+                System.out.println("Das Gewitter ist zu gefährlich!");
 
                 System.out.println(
                     "Du kannst mit dem Heissluftballon momentan nicht starten."
@@ -1498,7 +1518,7 @@ public class GameController {
             System.out.println();
 
             System.out.printf(
-                "📍 Du bist in %s angekommen.%n",
+                "Du bist in %s angekommen.%n",
                 currentLocation.getName()
             );
 
@@ -1515,7 +1535,7 @@ public class GameController {
             if (getCurrentDay() > oldDay) {
                 System.out.println();
 
-                System.out.printf("🌅 Tag %d hat begonnen!%n", getCurrentDay());
+                System.out.printf("Tag %d hat begonnen!%n", getCurrentDay());
             }
 
             /*
