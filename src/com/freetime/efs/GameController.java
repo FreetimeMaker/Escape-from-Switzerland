@@ -32,7 +32,6 @@ public class GameController {
     // Erster Wetterwechsel nach 3 Stunden
     private double nextWeatherChange = 3 * 60 * 60;
 
-
     /*
      * ============================================================
      * WETTER
@@ -40,51 +39,26 @@ public class GameController {
      */
 
     private enum Weather {
+        CLEAR("☀️ Klar", 1.00, true),
 
-        CLEAR(
-                "☀️ Klar",
-                1.00,
-                true
-        ),
+        CLOUDY("☁️ Bewölkt", 1.00, true),
 
-        CLOUDY(
-                "☁️ Bewölkt",
-                1.00,
-                true
-        ),
+        RAIN("🌧️ Regen", 1.15, true),
 
-        RAIN(
-                "🌧️ Regen",
-                1.15,
-                true
-        ),
+        FOG("🌫️ Nebel", 1.25, true),
 
-        FOG(
-                "🌫️ Nebel",
-                1.25,
-                true
-        ),
+        STRONG_WIND("💨 Starker Wind", 1.40, true),
 
-        STRONG_WIND(
-                "💨 Starker Wind",
-                1.40,
-                true
-        ),
-
-        THUNDERSTORM(
-                "⛈️ Gewitter",
-                1.00,
-                false
-        );
+        THUNDERSTORM("⛈️ Gewitter", 1.00, false);
 
         private final String displayName;
         private final double travelMultiplier;
         private final boolean travelAllowed;
 
         Weather(
-                String displayName,
-                double travelMultiplier,
-                boolean travelAllowed
+            String displayName,
+            double travelMultiplier,
+            boolean travelAllowed
         ) {
             this.displayName = displayName;
             this.travelMultiplier = travelMultiplier;
@@ -104,7 +78,6 @@ public class GameController {
         }
     }
 
-
     /*
      * ============================================================
      * KONSTRUKTOR
@@ -115,7 +88,6 @@ public class GameController {
         setupLocations();
     }
 
-
     /*
      * ============================================================
      * ORTE
@@ -123,415 +95,414 @@ public class GameController {
      */
 
     private void setupLocations() {
-
         Location aelggialp = new Location(
-                "Älggi-Alp",
-                "Du bist auf der \"Älggialp\" im Kanton \"Obwalden\" oder kurz \"OW\", dem geografischen Mittelpunkt der Schweiz."
+            "Älggi-Alp",
+            "Du bist auf der \"Älggialp\" im Kanton \"Obwalden\" oder kurz \"OW\", dem geografischen Mittelpunkt der Schweiz."
         );
 
         Location giswil = new Location(
-                "Giswil",
-                "Du bist in \"Giswil\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Giswil",
+            "Du bist in \"Giswil\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location rufi = new Location(
-                "Rufi",
-                "Du bist in \"Rufi\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Rufi",
+            "Du bist in \"Rufi\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location hasliberg = new Location(
-                "Hasliberg",
-                "Du bist jetzt in \"Hasliberg\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Hasliberg",
+            "Du bist jetzt in \"Hasliberg\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location lungern = new Location(
-                "Lungern",
-                "Du bist jetzt in \"Lungern\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Lungern",
+            "Du bist jetzt in \"Lungern\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location truebsee = new Location(
-                "Trübsee",
-                "Du bist jetzt am \"Trübsee\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Trübsee",
+            "Du bist jetzt am \"Trübsee\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location alpenresort_eienwaeldli = new Location(
-                "Alpenresort Eienwäldli",
-                "Du bist jetzt im \"Alpenresort Eienwäldli\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Alpenresort Eienwäldli",
+            "Du bist jetzt im \"Alpenresort Eienwäldli\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location sarnen = new Location(
-                "Sarnen",
-                "Du bist jetzt in \"Sarnen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Sarnen",
+            "Du bist jetzt in \"Sarnen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location melchtal_waterfall = new Location(
-                "Melchtal Waterfall",
-                "Du bist jetzt am \"Melchtal Waterfall\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Melchtal Waterfall",
+            "Du bist jetzt am \"Melchtal Waterfall\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location honegg = new Location(
-                "Honegg",
-                "Du bist jetzt in \"Honegg\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Honegg",
+            "Du bist jetzt in \"Honegg\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location alpnach = new Location(
-                "Alpnach",
-                "Du bist jetzt in \"Alpnach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Alpnach",
+            "Du bist jetzt in \"Alpnach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location kerns = new Location(
-                "Kerns",
-                "Du bist jetzt in \"Kerns\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Kerns",
+            "Du bist jetzt in \"Kerns\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location stalden_sarnen = new Location(
-                "Stalden (Sarnen)",
-                "Du bist jetzt in \"Stalden (Sarnen)\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Stalden (Sarnen)",
+            "Du bist jetzt in \"Stalden (Sarnen)\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location aareschlucht_meiringen = new Location(
-                "Aareschlucht (Meiringen)",
-                "Du bist jetzt an der \"Aareschlucht (Meiringen)\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Aareschlucht (Meiringen)",
+            "Du bist jetzt an der \"Aareschlucht (Meiringen)\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location maegisalp = new Location(
-                "Mägisalp",
-                "Du bist jetzt auf der \"Mägisalp\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Mägisalp",
+            "Du bist jetzt auf der \"Mägisalp\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location brienzwiler = new Location(
-                "Brienzwiler",
-                "Du bist jetzt in \"Brienzwiler\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Brienzwiler",
+            "Du bist jetzt in \"Brienzwiler\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location balm_bei_meiringen = new Location(
-                "Balm bei Meiringen",
-                "Du bist jetzt in \"Balm bei Meiringen\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Balm bei Meiringen",
+            "Du bist jetzt in \"Balm bei Meiringen\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location berghaus_schoenbueel = new Location(
-                "Berghaus Schönbüel",
-                "Du bist jetzt im \"Berghaus Schönbüel\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Berghaus Schönbüel",
+            "Du bist jetzt im \"Berghaus Schönbüel\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location giglistock = new Location(
-                "Giglistock",
-                "Du bist jetzt am \"Giglistock\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Giglistock",
+            "Du bist jetzt am \"Giglistock\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location engelberg = new Location(
-                "Engelberg",
-                "Du bist jetzt in \"Engelberg\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Engelberg",
+            "Du bist jetzt in \"Engelberg\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location silenen = new Location(
-                "Silenen",
-                "Du bist jetzt in \"Silenen\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Silenen",
+            "Du bist jetzt in \"Silenen\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location susten_passhoehe = new Location(
-                "Susten Passhöhe",
-                "Du bist jetzt auf der \"Susten Passhöhe\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Susten Passhöhe",
+            "Du bist jetzt auf der \"Susten Passhöhe\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location bannalpsee = new Location(
-                "Bannalpsee",
-                "Du bist jetzt am \"Bannalpsee\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Bannalpsee",
+            "Du bist jetzt am \"Bannalpsee\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location erstfelder_tal = new Location(
-                "Erstfelder Tal",
-                "Du bist jetzt im \"Erstfelder Tal\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Erstfelder Tal",
+            "Du bist jetzt im \"Erstfelder Tal\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location sportcamp_melchtal = new Location(
-                "Sportcamp Melchtal",
-                "Du bist jetzt im \"Sportcamp Melchtal\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Sportcamp Melchtal",
+            "Du bist jetzt im \"Sportcamp Melchtal\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location teufibach = new Location(
-                "Teufibach",
-                "Du bist jetzt am \"Teufibach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Teufibach",
+            "Du bist jetzt am \"Teufibach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location eugenisee = new Location(
-                "Eugenisee",
-                "Du bist jetzt am \"Eugenisee\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Eugenisee",
+            "Du bist jetzt am \"Eugenisee\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location berghotel_langis = new Location(
-                "Berghotel Langis",
-                "Du bist jetzt im \"Berghotel Langis\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Berghotel Langis",
+            "Du bist jetzt im \"Berghotel Langis\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location gipfelkreuz_giswilerstock = new Location(
-                "Gipfelkreuz Giswilerstock",
-                "Du bist jetzt am \"Gipfelkreuz Giswilerstock\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Gipfelkreuz Giswilerstock",
+            "Du bist jetzt am \"Gipfelkreuz Giswilerstock\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location chessiloch_fluehli = new Location(
-                "Chessiloch Flühli",
-                "Du bist jetzt im \"Chessiloch Flühli\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Chessiloch Flühli",
+            "Du bist jetzt im \"Chessiloch Flühli\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location hergiswil = new Location(
-                "Hergiswil",
-                "Du bist jetzt in \"Hergiswil\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Hergiswil",
+            "Du bist jetzt in \"Hergiswil\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location oberdorf = new Location(
-                "Oberdorf",
-                "Du bist jetzt in \"Oberdorf\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Oberdorf",
+            "Du bist jetzt in \"Oberdorf\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location regionalmuseum_chueechlihus = new Location(
-                "Regionalmuseum Chüechlihus",
-                "Du bist jetzt im \"Regionalmuseum Chüechlihus\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Regionalmuseum Chüechlihus",
+            "Du bist jetzt im \"Regionalmuseum Chüechlihus\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location luzern = new Location(
-                "Luzern",
-                "Du bist jetzt in \"Luzern\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Luzern",
+            "Du bist jetzt in \"Luzern\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location glogghues = new Location(
-                "Glogghüs",
-                "Du bist jetzt im \"Glogghüs\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Glogghüs",
+            "Du bist jetzt im \"Glogghüs\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location altdorf = new Location(
-                "Altdorf",
-                "Du bist jetzt in \"Altdorf\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Altdorf",
+            "Du bist jetzt in \"Altdorf\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location sempachersee = new Location(
-                "Sempachersee",
-                "Du bist jetzt am \"Sempachersee\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Sempachersee",
+            "Du bist jetzt am \"Sempachersee\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location rickhubel = new Location(
-                "Rickhubel",
-                "Du bist jetzt in \"Rickhubel\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Rickhubel",
+            "Du bist jetzt in \"Rickhubel\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location wilen_sarnen = new Location(
-                "Wilen (Sarnen)",
-                "Du bist jetzt in \"Wilen (Sarnen)\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Wilen (Sarnen)",
+            "Du bist jetzt in \"Wilen (Sarnen)\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location reichenbachfall = new Location(
-                "Reichenbachfall",
-                "Du bist jetzt am \"Reichenbachfall\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Reichenbachfall",
+            "Du bist jetzt am \"Reichenbachfall\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location hochstollen = new Location(
-                "Hochstollen",
-                "Du bist jetzt auf dem \"Hochstollen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Hochstollen",
+            "Du bist jetzt auf dem \"Hochstollen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location taelli_klettersteig = new Location(
-                "Tälli Klettersteig",
-                "Du bist jetzt am \"Tälli Klettersteig\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Tälli Klettersteig",
+            "Du bist jetzt am \"Tälli Klettersteig\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location innertkirchen = new Location(
-                "Innertkirchen",
-                "Du bist jetzt in \"Innertkirchen\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Innertkirchen",
+            "Du bist jetzt in \"Innertkirchen\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location oltschiburg = new Location(
-                "Oltschiburg",
-                "Du bist jetzt auf der \"Oltschiburg\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Oltschiburg",
+            "Du bist jetzt auf der \"Oltschiburg\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location brienz = new Location(
-                "Brienz",
-                "Du bist jetzt in \"Brienz\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Brienz",
+            "Du bist jetzt in \"Brienz\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location gletscherschlucht_rosenlaui = new Location(
-                "Gletscherschlucht Rosenlaui",
-                "Du bist jetzt in der \"Gletscherschlucht Rosenlaui\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Gletscherschlucht Rosenlaui",
+            "Du bist jetzt in der \"Gletscherschlucht Rosenlaui\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location brienzersee = new Location(
-                "Brienzersee",
-                "Du bist jetzt beim \"Brienzersee\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Brienzersee",
+            "Du bist jetzt beim \"Brienzersee\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location panoramastrasse_glaubenbielen = new Location(
-                "Panoramastrasse Glaubenbielen",
-                "Du bist jetzt bei der \"Panoramastrasse Glaubenbielen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Panoramastrasse Glaubenbielen",
+            "Du bist jetzt bei der \"Panoramastrasse Glaubenbielen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location brienzer_rothorn = new Location(
-                "Brienzer Rothorn",
-                "Du bist jetzt beim \"Brienzer Rothorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Brienzer Rothorn",
+            "Du bist jetzt beim \"Brienzer Rothorn\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location rhonegletscher = new Location(
-                "Rhonegletscher",
-                "Du bist jetzt beim \"Rhonegletscher\" im Kanton \"Wallis\" oder kurz \"VS\"."
+            "Rhonegletscher",
+            "Du bist jetzt beim \"Rhonegletscher\" im Kanton \"Wallis\" oder kurz \"VS\"."
         );
 
         Location wassen = new Location(
-                "Wassen",
-                "Du bist jetzt in \"Wassen\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Wassen",
+            "Du bist jetzt in \"Wassen\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location dallenwil = new Location(
-                "Dallenwil",
-                "Du bist jetzt in \"Dallenwil\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Dallenwil",
+            "Du bist jetzt in \"Dallenwil\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location erstfeld = new Location(
-                "Erstfeld",
-                "Du bist jetzt in \"Erstfeld\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Erstfeld",
+            "Du bist jetzt in \"Erstfeld\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location laax = new Location(
-                "Laax",
-                "Du bist jetzt in \"Laax\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+            "Laax",
+            "Du bist jetzt in \"Laax\" im Kanton \"Graubünden\" oder kurz \"GR\"."
         );
 
         Location realp = new Location(
-                "Realp",
-                "Du bist jetzt in \"Realp\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Realp",
+            "Du bist jetzt in \"Realp\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location gschletterkurve = new Location(
-                "Gletterkurve",
-                "Du bist jetzt bei der Gschletterkurve im Kanton \"Bern\" oder kurz \"BE\"."
+            "Gletterkurve",
+            "Du bist jetzt bei der Gschletterkurve im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location gurtnellen = new Location(
-                "Gurtnellen",
-                "Du bist jetzt in \"Gurtnellen\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Gurtnellen",
+            "Du bist jetzt in \"Gurtnellen\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location rhonestock = new Location(
-                "Rhonestock",
-                "Du bist jetzt beim \"Rhonestock\" im Kanton \"Wallis\" oder kurz \"VS\"."
+            "Rhonestock",
+            "Du bist jetzt beim \"Rhonestock\" im Kanton \"Wallis\" oder kurz \"VS\"."
         );
 
         Location attinghausen = new Location(
-                "Attinghausen",
-                "Du bist jetzt in \"Attinghausen\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Attinghausen",
+            "Du bist jetzt in \"Attinghausen\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location altzellen = new Location(
-                "Altzellen",
-                "Du bist jetzt in \"Altzellen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Altzellen",
+            "Du bist jetzt in \"Altzellen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location seewlialp = new Location(
-                "Seewlialp",
-                "Du bist jetzt bei der \"Seewlialp\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Seewlialp",
+            "Du bist jetzt bei der \"Seewlialp\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location seelisberg = new Location(
-                "Seelisberg",
-                "Du bist jetzt in \"Seelisberg\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Seelisberg",
+            "Du bist jetzt in \"Seelisberg\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location hospental = new Location(
-                "Hospental",
-                "Du bist jetzt in \"Hospental\" im Kanton \"Uri\" oder kurz \"UR\"."
+            "Hospental",
+            "Du bist jetzt in \"Hospental\" im Kanton \"Uri\" oder kurz \"UR\"."
         );
 
         Location melchsee = new Location(
-                "Melchsee",
-                "Du bist jetzt beim \"Melchsee\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Melchsee",
+            "Du bist jetzt beim \"Melchsee\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location limmerensee = new Location(
-                "Limmerensee",
-                "Du bist jetzt beim \"Limmerensee\" im Kanton \"Glasrus\" oder kurz \"GL\"."
+            "Limmerensee",
+            "Du bist jetzt beim \"Limmerensee\" im Kanton \"Glasrus\" oder kurz \"GL\"."
         );
 
         Location unesco_biospaehre_entlebuch = new Location(
-                "UNESCO Biospähre Entlebuch",
-                "Du bist jetzt bei der \"UNESCO Biosphäre Entlebuch\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "UNESCO Biospähre Entlebuch",
+            "Du bist jetzt bei der \"UNESCO Biosphäre Entlebuch\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location kriens = new Location(
-                "Kriens",
-                "Du bist jetzt in \"Kriens\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Kriens",
+            "Du bist jetzt in \"Kriens\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location heftihuette = new Location(
-                "Heftihütte",
-                "Du bist jetzt bei der \"Hefthütte\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Heftihütte",
+            "Du bist jetzt bei der \"Hefthütte\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location berghaus_klondike = new Location(
-                "Berghaus Klondike",
-                "Du bist jetzt beim \"Berghaus Klondike\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Berghaus Klondike",
+            "Du bist jetzt beim \"Berghaus Klondike\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location panixersee = new Location(
-                "Panixersee",
-                "Du bist jetzt beim \"Panixersee\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+            "Panixersee",
+            "Du bist jetzt beim \"Panixersee\" im Kanton \"Graubünden\" oder kurz \"GR\"."
         );
 
         Location truebseebach_wasserfall = new Location(
-                "Trübseebach Wasserfall",
-                "Du bist jetzt beim \"Trübseebach Wasserfall\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Trübseebach Wasserfall",
+            "Du bist jetzt beim \"Trübseebach Wasserfall\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location eugenibach = new Location(
-                "Eugenibach",
-                "Du bist jetzt beim \"Eugenibach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+            "Eugenibach",
+            "Du bist jetzt beim \"Eugenibach\" im Kanton \"Obwalden\" oder kurz \"OW\"."
         );
 
         Location schachen = new Location(
-                "Schachen",
-                "Du bist jetzt in \"Schachen\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Schachen",
+            "Du bist jetzt in \"Schachen\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location fluehli = new Location(
-                "Flühli",
-                "Du bist jetzt in \"Flühli\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Flühli",
+            "Du bist jetzt in \"Flühli\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location wolfenschiessen = new Location(
-                "Wolfenschiessen",
-                "Du bist jetzt in \"Wolfenschiessen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+            "Wolfenschiessen",
+            "Du bist jetzt in \"Wolfenschiessen\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
         );
 
         Location soerenberg = new Location(
-                "Sörenberg",
-                "Du bist jetzt in \"Sörenberg\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Sörenberg",
+            "Du bist jetzt in \"Sörenberg\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location wetterhorn = new Location(
-                "Wetterhorn",
-                "Du bist jetzt beim \"Wetterhorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Wetterhorn",
+            "Du bist jetzt beim \"Wetterhorn\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location hohwald = new Location(
-                "Hohwald",
-                "Du bist jetzt in \"Hohwald\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Hohwald",
+            "Du bist jetzt in \"Hohwald\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location menznau = new Location(
-                "Menznau",
-                "Du bist jetzt in \"Menznau\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Menznau",
+            "Du bist jetzt in \"Menznau\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location horw = new Location(
-                "Horw",
-                "Du bist jetzt in \"Horw\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Horw",
+            "Du bist jetzt in \"Horw\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location entlebuch = new Location(
-                "Entlebuch",
-                "Du bist jetzt in \"Entlebuch\" im Kanton \"Luzern\" oder kurz \"LU\"."
+            "Entlebuch",
+            "Du bist jetzt in \"Entlebuch\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
         Location gersau = new Location(
-                "Gersau",
-                "Du bist jetzt in \"Gersau\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
+            "Gersau",
+            "Du bist jetzt in \"Gersau\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
         );
 
         /*
@@ -584,27 +555,51 @@ public class GameController {
 
         // Von Alpenresort Eienwäldli
         alpenresort_eienwaeldli.setTwoWayExit(Direction.WEST, rufi, 1950.0);
-        alpenresort_eienwaeldli.setTwoWayExit(Direction.SOUTH, susten_passhoehe, 2850.0);
-        alpenresort_eienwaeldli.setTwoWayExit(Direction.NORTH, bannalpsee, 900.0);
-        alpenresort_eienwaeldli.setTwoWayExit(Direction.EAST, erstfelder_tal, 1500.0);
+        alpenresort_eienwaeldli.setTwoWayExit(
+            Direction.SOUTH,
+            susten_passhoehe,
+            2850.0
+        );
+        alpenresort_eienwaeldli.setTwoWayExit(
+            Direction.NORTH,
+            bannalpsee,
+            900.0
+        );
+        alpenresort_eienwaeldli.setTwoWayExit(
+            Direction.EAST,
+            erstfelder_tal,
+            1500.0
+        );
 
         // Vom Melchtal Waterfall
         melchtal_waterfall.setTwoWayExit(Direction.WEST, giswil, 900.0);
-        melchtal_waterfall.setTwoWayExit(Direction.SOUTH, sportcamp_melchtal, 240.0);
+        melchtal_waterfall.setTwoWayExit(
+            Direction.SOUTH,
+            sportcamp_melchtal,
+            240.0
+        );
         melchtal_waterfall.setTwoWayExit(Direction.NORTH, teufibach, 390.0);
         melchtal_waterfall.setTwoWayExit(Direction.EAST, eugenisee, 1290.0);
 
         // Von Honegg
         honegg.setTwoWayExit(Direction.EAST, giswil, 450.0);
         honegg.setTwoWayExit(Direction.NORTH, berghotel_langis, 3150.0);
-        honegg.setTwoWayExit(Direction.SOUTH, gipfelkreuz_giswilerstock, 3900.0);
+        honegg.setTwoWayExit(
+            Direction.SOUTH,
+            gipfelkreuz_giswilerstock,
+            3900.0
+        );
         honegg.setTwoWayExit(Direction.WEST, chessiloch_fluehli, 4050.0);
 
         // Von Alpnach
         alpnach.setTwoWayExit(Direction.SOUTH, sarnen, 750.0);
         alpnach.setTwoWayExit(Direction.NORTH, hergiswil, 810.0);
         alpnach.setTwoWayExit(Direction.EAST, oberdorf, 1200.0);
-        alpnach.setTwoWayExit(Direction.WEST, regionalmuseum_chueechlihus, 4950.0);
+        alpnach.setTwoWayExit(
+            Direction.WEST,
+            regionalmuseum_chueechlihus,
+            4950.0
+        );
 
         // Von Kerns
         kerns.setTwoWayExit(Direction.WEST, sarnen, 450.0);
@@ -620,9 +615,21 @@ public class GameController {
 
         // Von Aareschlucht
         aareschlucht_meiringen.setTwoWayExit(Direction.NORTH, hasliberg, 690.0);
-        aareschlucht_meiringen.setTwoWayExit(Direction.SOUTH, reichenbachfall, 180.0);
-        aareschlucht_meiringen.setTwoWayExit(Direction.WEST, balm_bei_meiringen, 390.0);
-        aareschlucht_meiringen.setTwoWayExit(Direction.EAST, giglistock, 1800.0);
+        aareschlucht_meiringen.setTwoWayExit(
+            Direction.SOUTH,
+            reichenbachfall,
+            180.0
+        );
+        aareschlucht_meiringen.setTwoWayExit(
+            Direction.WEST,
+            balm_bei_meiringen,
+            390.0
+        );
+        aareschlucht_meiringen.setTwoWayExit(
+            Direction.EAST,
+            giglistock,
+            1800.0
+        );
 
         // Von Mägisalp
         maegisalp.setTwoWayExit(Direction.WEST, hasliberg, 600.0);
@@ -638,26 +645,50 @@ public class GameController {
 
         // Von Balm bei Meiringen
         balm_bei_meiringen.setTwoWayExit(Direction.NORTH, lungern, 900.0);
-        balm_bei_meiringen.setTwoWayExit(Direction.SOUTH, gletscherschlucht_rosenlaui, 840.0);
-        balm_bei_meiringen.setTwoWayExit(Direction.EAST, aareschlucht_meiringen, 390.0);
+        balm_bei_meiringen.setTwoWayExit(
+            Direction.SOUTH,
+            gletscherschlucht_rosenlaui,
+            840.0
+        );
+        balm_bei_meiringen.setTwoWayExit(
+            Direction.EAST,
+            aareschlucht_meiringen,
+            390.0
+        );
         balm_bei_meiringen.setTwoWayExit(Direction.WEST, brienzersee, 540.0);
 
         // Vom Berghaus Schönbüel
         berghaus_schoenbueel.setTwoWayExit(Direction.EAST, lungern, 750.0);
-        berghaus_schoenbueel.setTwoWayExit(Direction.NORTH, panoramastrasse_glaubenbielen, 600.0);
-        berghaus_schoenbueel.setTwoWayExit(Direction.WEST, brienzer_rothorn, 510.0);
+        berghaus_schoenbueel.setTwoWayExit(
+            Direction.NORTH,
+            panoramastrasse_glaubenbielen,
+            600.0
+        );
+        berghaus_schoenbueel.setTwoWayExit(
+            Direction.WEST,
+            brienzer_rothorn,
+            510.0
+        );
         berghaus_schoenbueel.setTwoWayExit(Direction.SOUTH, brienzwiler, 600.0);
 
         // Vom Giglistock
         giglistock.setTwoWayExit(Direction.NORTH, truebsee, 1500.0);
-        giglistock.setTwoWayExit(Direction.WEST, aareschlucht_meiringen, 1800.0);
+        giglistock.setTwoWayExit(
+            Direction.WEST,
+            aareschlucht_meiringen,
+            1800.0
+        );
         giglistock.setTwoWayExit(Direction.SOUTH, rhonegletscher, 1290.0);
         giglistock.setTwoWayExit(Direction.EAST, wassen, 1500.0);
 
         // Von Engelberg
         engelberg.setTwoWayExit(Direction.SOUTH, truebsee, 600.0);
         engelberg.setTwoWayExit(Direction.NORTH, dallenwil, 1020.0);
-        engelberg.setTwoWayExit(Direction.WEST, gipfelkreuz_giswilerstock, 1800.0);
+        engelberg.setTwoWayExit(
+            Direction.WEST,
+            gipfelkreuz_giswilerstock,
+            1800.0
+        );
         engelberg.setTwoWayExit(Direction.EAST, erstfeld, 1500.0);
 
         // Von Silenen
@@ -667,28 +698,48 @@ public class GameController {
         silenen.setTwoWayExit(Direction.SOUTH, wassen, 900.0);
 
         // Von Susten Passhöhe
-        susten_passhoehe.setTwoWayExit(Direction.NORTH, alpenresort_eienwaeldli, 2850.0);
+        susten_passhoehe.setTwoWayExit(
+            Direction.NORTH,
+            alpenresort_eienwaeldli,
+            2850.0
+        );
         susten_passhoehe.setTwoWayExit(Direction.SOUTH, realp, 1500.0);
         susten_passhoehe.setTwoWayExit(Direction.WEST, gschletterkurve, 600.0);
         susten_passhoehe.setTwoWayExit(Direction.EAST, gurtnellen, 1290.0);
 
         // Vom Bannalpsee
-        bannalpsee.setTwoWayExit(Direction.NORTH, alpenresort_eienwaeldli, 900.0);
+        bannalpsee.setTwoWayExit(
+            Direction.NORTH,
+            alpenresort_eienwaeldli,
+            900.0
+        );
         bannalpsee.setTwoWayExit(Direction.SOUTH, rhonestock, 2250.0);
         bannalpsee.setTwoWayExit(Direction.EAST, attinghausen, 1110.0);
         bannalpsee.setTwoWayExit(Direction.WEST, altzellen, 450.0);
 
         // Vom Erstfelder Tal
-        erstfelder_tal.setTwoWayExit(Direction.WEST, alpenresort_eienwaeldli, 1500.0);
+        erstfelder_tal.setTwoWayExit(
+            Direction.WEST,
+            alpenresort_eienwaeldli,
+            1500.0
+        );
         erstfelder_tal.setTwoWayExit(Direction.EAST, seewlialp, 750.0);
         erstfelder_tal.setTwoWayExit(Direction.NORTH, seelisberg, 1800.0);
         erstfelder_tal.setTwoWayExit(Direction.SOUTH, hospental, 2100.0);
 
         // Vom Sportcamp Melchtal
-        sportcamp_melchtal.setTwoWayExit(Direction.NORTH, melchtal_waterfall, 240.0);
+        sportcamp_melchtal.setTwoWayExit(
+            Direction.NORTH,
+            melchtal_waterfall,
+            240.0
+        );
         sportcamp_melchtal.setTwoWayExit(Direction.SOUTH, melchsee, 600.0);
         sportcamp_melchtal.setTwoWayExit(Direction.EAST, limmerensee, 3900.0);
-        sportcamp_melchtal.setTwoWayExit(Direction.WEST, unesco_biospaehre_entlebuch, 1800.0);
+        sportcamp_melchtal.setTwoWayExit(
+            Direction.WEST,
+            unesco_biospaehre_entlebuch,
+            1800.0
+        );
 
         // Vom Teufibach
         teufibach.setTwoWayExit(Direction.SOUTH, melchtal_waterfall, 390.0);
@@ -699,7 +750,11 @@ public class GameController {
         // Vom Eugenisee
         eugenisee.setTwoWayExit(Direction.WEST, melchtal_waterfall, 1290.0);
         eugenisee.setTwoWayExit(Direction.EAST, panixersee, 4500.0);
-        eugenisee.setTwoWayExit(Direction.SOUTH, truebseebach_wasserfall, 450.0);
+        eugenisee.setTwoWayExit(
+            Direction.SOUTH,
+            truebseebach_wasserfall,
+            450.0
+        );
         eugenisee.setTwoWayExit(Direction.NORTH, eugenibach, 600.0);
 
         // Vom Berghotel Langis
@@ -709,10 +764,26 @@ public class GameController {
         berghotel_langis.setTwoWayExit(Direction.EAST, wolfenschiessen, 1800.0);
 
         // Vom Gipfelkreuz Giswilerstock
-        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.NORTH, honegg, 3900.0);
-        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.EAST, engelberg, 1800.0);
-        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.WEST, soerenberg, 750.0);
-        gipfelkreuz_giswilerstock.setTwoWayExit(Direction.SOUTH, wetterhorn, 3150.0);
+        gipfelkreuz_giswilerstock.setTwoWayExit(
+            Direction.NORTH,
+            honegg,
+            3900.0
+        );
+        gipfelkreuz_giswilerstock.setTwoWayExit(
+            Direction.EAST,
+            engelberg,
+            1800.0
+        );
+        gipfelkreuz_giswilerstock.setTwoWayExit(
+            Direction.WEST,
+            soerenberg,
+            750.0
+        );
+        gipfelkreuz_giswilerstock.setTwoWayExit(
+            Direction.SOUTH,
+            wetterhorn,
+            3150.0
+        );
 
         // Vom Chessiloch in Flühli
         chessiloch_fluehli.setTwoWayExit(Direction.EAST, honegg, 4050.0);
@@ -730,7 +801,6 @@ public class GameController {
 
         this.currentLocation = aelggialp;
     }
-
 
     /*
      * ============================================================
@@ -783,12 +853,12 @@ public class GameController {
 
     private void printGameTime() {
         System.out.printf(
-                "Zeit: Tag %d | %02d:%02d:%02d | %s%n",
-                getCurrentDay(),
-                getCurrentHour(),
-                getCurrentMinute(),
-                getCurrentSecond(),
-                getDayPhase()
+            "Zeit: Tag %d | %02d:%02d:%02d | %s%n",
+            getCurrentDay(),
+            getCurrentHour(),
+            getCurrentMinute(),
+            getCurrentSecond(),
+            getDayPhase()
         );
     }
 
@@ -805,11 +875,11 @@ public class GameController {
         long secs = totalSeconds % 60;
 
         return String.format(
-                "%d Tage, %02d:%02d:%02d",
-                days,
-                hours,
-                minutes,
-                secs
+            "%d Tage, %02d:%02d:%02d",
+            days,
+            hours,
+            minutes,
+            secs
         );
     }
 
@@ -824,24 +894,19 @@ public class GameController {
 
         if (hours > 0) {
             return String.format(
-                    "%d Stunden, %d Minuten und %d Sekunden",
-                    hours,
-                    minutes,
-                    secs
+                "%d Stunden, %d Minuten und %d Sekunden",
+                hours,
+                minutes,
+                secs
             );
         }
 
         if (minutes > 0) {
-            return String.format(
-                    "%d Minuten und %d Sekunden",
-                    minutes,
-                    secs
-            );
+            return String.format("%d Minuten und %d Sekunden", minutes, secs);
         }
 
         return secs + " Sekunden";
     }
-
 
     /*
      * ============================================================
@@ -850,34 +915,28 @@ public class GameController {
      */
 
     private void updateWeather() {
-
         /*
          * Falls durch Schlafen oder eine lange Reise mehrere
          * Wetterwechsel übersprungen wurden, holen wir sie hier nach.
          */
         while (timeElapsed >= nextWeatherChange) {
-
             Weather oldWeather = currentWeather;
 
             currentWeather = getNextWeather(currentWeather);
 
             // Nächster Wechsel nach 2 bis 6 Stunden
-            int hoursUntilNextChange =
-                    2 + random.nextInt(5);
+            int hoursUntilNextChange = 2 + random.nextInt(5);
 
-            nextWeatherChange +=
-                    hoursUntilNextChange * 3600.0;
+            nextWeatherChange += hoursUntilNextChange * 3600.0;
 
             if (oldWeather != currentWeather) {
                 System.out.println();
-                System.out.println(
-                        "🌤️ Das Wetter hat sich geändert:"
-                );
+                System.out.println("🌤️ Das Wetter hat sich geändert:");
 
                 System.out.println(
-                        oldWeather.getDisplayName()
-                                + " → "
-                                + currentWeather.getDisplayName()
+                    oldWeather.getDisplayName() +
+                        " → " +
+                        currentWeather.getDisplayName()
                 );
             }
         }
@@ -888,11 +947,9 @@ public class GameController {
      * Stattdessen hängt das nächste Wetter vom aktuellen Wetter ab.
      */
     private Weather getNextWeather(Weather weather) {
-
         int roll = random.nextInt(100);
 
         switch (weather) {
-
             case CLEAR:
                 if (roll < 55) {
                     return Weather.CLEAR;
@@ -907,8 +964,6 @@ public class GameController {
                 }
 
                 return Weather.RAIN;
-
-
             case CLOUDY:
                 if (roll < 25) {
                     return Weather.CLEAR;
@@ -927,8 +982,6 @@ public class GameController {
                 }
 
                 return Weather.STRONG_WIND;
-
-
             case RAIN:
                 if (roll < 15) {
                     return Weather.CLEAR;
@@ -947,8 +1000,6 @@ public class GameController {
                 }
 
                 return Weather.THUNDERSTORM;
-
-
             case FOG:
                 if (roll < 20) {
                     return Weather.CLEAR;
@@ -963,8 +1014,6 @@ public class GameController {
                 }
 
                 return Weather.RAIN;
-
-
             case STRONG_WIND:
                 if (roll < 15) {
                     return Weather.CLEAR;
@@ -983,8 +1032,6 @@ public class GameController {
                 }
 
                 return Weather.THUNDERSTORM;
-
-
             case THUNDERSTORM:
                 if (roll < 45) {
                     return Weather.RAIN;
@@ -999,38 +1046,28 @@ public class GameController {
                 }
 
                 return Weather.THUNDERSTORM;
-
-
             default:
                 return Weather.CLEAR;
         }
     }
 
     private void printWeather() {
-        System.out.println(
-                "Wetter: "
-                        + currentWeather.getDisplayName()
-        );
+        System.out.println("Wetter: " + currentWeather.getDisplayName());
 
         if (currentWeather == Weather.RAIN) {
-            System.out.println(
-                    "🌧️ Durch den Regen dauern Reisen 15 % länger."
-            );
+            System.out.println("🌧️ Durch den Regen dauern Reisen 15 % länger.");
         } else if (currentWeather == Weather.FOG) {
-            System.out.println(
-                    "🌫️ Durch den Nebel dauern Reisen 25 % länger."
-            );
+            System.out.println("🌫️ Durch den Nebel dauern Reisen 25 % länger.");
         } else if (currentWeather == Weather.STRONG_WIND) {
             System.out.println(
-                    "💨 Durch den starken Wind dauern Reisen 40 % länger."
+                "💨 Durch den starken Wind dauern Reisen 40 % länger."
             );
         } else if (currentWeather == Weather.THUNDERSTORM) {
             System.out.println(
-                    "⛈️ Bei diesem Gewitter kannst du nicht mit dem Heissluftballon fliegen."
+                "⛈️ Bei diesem Gewitter kannst du nicht mit dem Heissluftballon fliegen."
             );
         }
     }
-
 
     /*
      * ============================================================
@@ -1039,141 +1076,105 @@ public class GameController {
      */
 
     private void sleepUntilMorning() {
-
         long currentSecondsOfDay =
-                getCurrentHour() * 3600L
-                        + getCurrentMinute() * 60L
-                        + getCurrentSecond();
+            getCurrentHour() * 3600L +
+            getCurrentMinute() * 60L +
+            getCurrentSecond();
 
-        long targetSeconds =
-                6 * 3600L;
+        long targetSeconds = 6 * 3600L;
 
         long sleepSeconds;
 
         if (currentSecondsOfDay < targetSeconds) {
-
-            sleepSeconds =
-                    targetSeconds
-                            - currentSecondsOfDay;
-
+            sleepSeconds = targetSeconds - currentSecondsOfDay;
         } else {
-
-            sleepSeconds =
-                    (24 * 3600L - currentSecondsOfDay)
-                            + targetSeconds;
+            sleepSeconds = 24 * 3600L - currentSecondsOfDay + targetSeconds;
         }
 
-        double remainingTime =
-                startTime - timeElapsed;
+        double remainingTime = startTime - timeElapsed;
 
         if (sleepSeconds >= remainingTime) {
-
             timeElapsed = startTime;
 
             System.out.println();
-            System.out.println(
-                    "🛏️ Du legst dich schlafen..."
-            );
+            System.out.println("🛏️ Du legst dich schlafen...");
 
             System.out.println(
-                    "Während du schläfst, läuft deine verbleibende Zeit ab."
+                "Während du schläfst, läuft deine verbleibende Zeit ab."
             );
 
             return;
         }
 
         System.out.println();
-        System.out.println(
-                "🛏️ Du legst dich schlafen..."
-        );
+        System.out.println("🛏️ Du legst dich schlafen...");
 
         timeElapsed += sleepSeconds;
 
         System.out.println(
-                "Du hast "
-                        + formatDuration(sleepSeconds)
-                        + " geschlafen."
+            "Du hast " + formatDuration(sleepSeconds) + " geschlafen."
         );
 
         updateWeather();
 
         System.out.printf(
-                "🌅 Du wachst an Tag %d um %02d:%02d Uhr auf.%n",
-                getCurrentDay(),
-                getCurrentHour(),
-                getCurrentMinute()
+            "🌅 Du wachst an Tag %d um %02d:%02d Uhr auf.%n",
+            getCurrentDay(),
+            getCurrentHour(),
+            getCurrentMinute()
         );
 
-        System.out.println(
-                "Wetter: "
-                        + currentWeather.getDisplayName()
-        );
+        System.out.println("Wetter: " + currentWeather.getDisplayName());
     }
 
     private void waitThirtyMinutes() {
-
-        double remainingTime =
-                startTime - timeElapsed;
+        double remainingTime = startTime - timeElapsed;
 
         if (WAIT_TIME >= remainingTime) {
-
             timeElapsed = startTime;
 
             System.out.println();
-            System.out.println(
-                    "⏳ Du wartest..."
-            );
+            System.out.println("⏳ Du wartest...");
 
             System.out.println(
-                    "Während du wartest, läuft deine verbleibende Zeit ab."
+                "Während du wartest, läuft deine verbleibende Zeit ab."
             );
 
             return;
         }
 
-        String oldDayPhase =
-                getDayPhase();
+        String oldDayPhase = getDayPhase();
 
-        int oldDay =
-                getCurrentDay();
+        int oldDay = getCurrentDay();
 
         System.out.println();
-        System.out.println(
-                "⏳ Du wartest 30 Minuten."
-        );
+        System.out.println("⏳ Du wartest 30 Minuten.");
 
         timeElapsed += WAIT_TIME;
 
         updateWeather();
 
         if (getCurrentDay() > oldDay) {
-            System.out.printf(
-                    "🌅 Tag %d hat begonnen!%n",
-                    getCurrentDay()
-            );
+            System.out.printf("🌅 Tag %d hat begonnen!%n", getCurrentDay());
         }
 
         if (!oldDayPhase.equals(getDayPhase())) {
             System.out.println(
-                    "Die Tageszeit hat sich geändert: "
-                            + oldDayPhase
-                            + " → "
-                            + getDayPhase()
+                "Die Tageszeit hat sich geändert: " +
+                    oldDayPhase +
+                    " → " +
+                    getDayPhase()
             );
         }
 
         System.out.printf(
-                "Es ist jetzt %02d:%02d Uhr.%n",
-                getCurrentHour(),
-                getCurrentMinute()
+            "Es ist jetzt %02d:%02d Uhr.%n",
+            getCurrentHour(),
+            getCurrentMinute()
         );
 
-        System.out.println(
-                "Wetter: "
-                        + currentWeather.getDisplayName()
-        );
+        System.out.println("Wetter: " + currentWeather.getDisplayName());
     }
-
 
     /*
      * ============================================================
@@ -1182,106 +1183,75 @@ public class GameController {
      */
 
     public void start() {
+        Scanner scanner = new Scanner(System.in);
 
-        Scanner scanner =
-                new Scanner(System.in);
-
-        Console console =
-                System.console();
+        Console console = System.console();
 
         System.out.println(
-                "Hallo und willkommen bei \"Escape from Switzerland\"!"
+            "Hallo und willkommen bei \"Escape from Switzerland\"!"
         );
 
         if (console != null) {
-
-            String eingabe =
-                    console.readLine(
-                            "Gib einen Namen ein, um fortzufahren: "
-                    );
-
-            System.out.println(
-                    "Willkommen: " + eingabe
+            String eingabe = console.readLine(
+                "Gib einen Namen ein, um fortzufahren: "
             );
+
+            System.out.println("Willkommen: " + eingabe);
         }
 
         System.out.println();
 
         System.out.println(
-                "Deine Mission ist es, aus der Schweiz zu fliehen, bevor die Zeit abläuft!"
+            "Deine Mission ist es, aus der Schweiz zu fliehen, bevor die Zeit abläuft!"
         );
 
         System.out.println(
-                "Du nimmst extra einen Heissluftballon, damit du schneller unterwegs bist."
+            "Du nimmst extra einen Heissluftballon, damit du schneller unterwegs bist."
         );
 
         System.out.println(
-                "Du startest auf der \"Älggialp\" im Kanton \"Obwalden\"."
+            "Du startest auf der \"Älggialp\" im Kanton \"Obwalden\"."
         );
 
         System.out.println(
-                "Du hast 10 Tage Zeit, um aus der Schweiz herauszukommen."
+            "Du hast 10 Tage Zeit, um aus der Schweiz herauszukommen."
         );
 
         System.out.println();
 
-        System.out.println(
-                "Das Spiel beginnt an Tag 1 um 06:00 Uhr."
-        );
+        System.out.println("Das Spiel beginnt an Tag 1 um 06:00 Uhr.");
+
+        System.out.println("Während deiner Reisen vergeht die Zeit.");
+
+        System.out.println("Nachts dauern Reisen 20 % länger.");
 
         System.out.println(
-                "Während deiner Reisen vergeht die Zeit."
+            "Das Wetter kann deine Reise zusätzlich verlangsamen."
         );
 
-        System.out.println(
-                "Nachts dauern Reisen 20 % länger."
-        );
+        System.out.println("Bei Gewitter kannst du nicht fliegen.");
 
-        System.out.println(
-                "Das Wetter kann deine Reise zusätzlich verlangsamen."
-        );
+        System.out.println("Mit \"schlafen\" schläfst du bis 06:00 Uhr.");
 
-        System.out.println(
-                "Bei Gewitter kannst du nicht fliegen."
-        );
+        System.out.println("Mit \"warten\" wartest du 30 Minuten.");
 
-        System.out.println(
-                "Mit \"schlafen\" schläfst du bis 06:00 Uhr."
-        );
-
-        System.out.println(
-                "Mit \"warten\" wartest du 30 Minuten."
-        );
-
-
-        List<String> validStart =
-                Arrays.asList("start");
+        List<String> validStart = Arrays.asList("start");
 
         boolean start = false;
 
         while (!start) {
-
             System.out.print(
-                    "\nTippe \"Start\" oder \"start\" ein, um zu beginnen: "
+                "\nTippe \"Start\" oder \"start\" ein, um zu beginnen: "
             );
 
-            String answer =
-                    scanner.nextLine()
-                            .trim()
-                            .toLowerCase();
+            String answer = scanner.nextLine().trim().toLowerCase();
 
             if (validStart.contains(answer)) {
-
                 start = true;
-
             } else {
-
-                System.out.println(
-                        "Ungültige Eingabe!"
-                );
+                System.out.println("Ungültige Eingabe!");
             }
         }
-
 
         /*
          * ========================================================
@@ -1290,25 +1260,18 @@ public class GameController {
          */
 
         while (startTime - timeElapsed > 0) {
-
             updateWeather();
 
-            double remainingTime =
-                    startTime - timeElapsed;
+            double remainingTime = startTime - timeElapsed;
 
             System.out.println();
             System.out.println(
-                    "================================================"
+                "================================================"
             );
 
-            System.out.println(
-                    "📍 Ort: "
-                            + currentLocation.getName()
-            );
+            System.out.println("📍 Ort: " + currentLocation.getName());
 
-            System.out.println(
-                    currentLocation.getDescription()
-            );
+            System.out.println(currentLocation.getDescription());
 
             System.out.println();
 
@@ -1317,27 +1280,20 @@ public class GameController {
             printWeather();
 
             System.out.println(
-                    "⏳ Verbleibende Zeit: "
-                            + formatRemainingTime(remainingTime)
+                "⏳ Verbleibende Zeit: " + formatRemainingTime(remainingTime)
             );
 
             if (isNight()) {
                 System.out.println(
-                        "🌙 Reisen dauern wegen der Dunkelheit 20 % länger."
+                    "🌙 Reisen dauern wegen der Dunkelheit 20 % länger."
                 );
             }
 
             System.out.println();
 
-            System.out.print(
-                    "Aktion (N/S/O/W, schlafen, warten oder exit): "
-            );
+            System.out.print("Aktion (N/S/O/W, schlafen, warten oder exit): ");
 
-            String input =
-                    scanner.nextLine()
-                            .trim()
-                            .toLowerCase();
-
+            String input = scanner.nextLine().trim().toLowerCase();
 
             /*
              * ====================================================
@@ -1345,16 +1301,11 @@ public class GameController {
              * ====================================================
              */
 
-            if (input.equals("exit")
-                    || input.equals("q")) {
-
-                System.out.println(
-                        "Spiel vorbei."
-                );
+            if (input.equals("exit") || input.equals("q")) {
+                System.out.println("Spiel vorbei.");
 
                 break;
             }
-
 
             /*
              * ====================================================
@@ -1362,14 +1313,11 @@ public class GameController {
              * ====================================================
              */
 
-            if (input.equals("schlafen")
-                    || input.equals("sleep")) {
-
+            if (input.equals("schlafen") || input.equals("sleep")) {
                 sleepUntilMorning();
 
                 continue;
             }
-
 
             /*
              * ====================================================
@@ -1377,14 +1325,11 @@ public class GameController {
              * ====================================================
              */
 
-            if (input.equals("warten")
-                    || input.equals("wait")) {
-
+            if (input.equals("warten") || input.equals("wait")) {
                 waitThirtyMinutes();
 
                 continue;
             }
-
 
             /*
              * ====================================================
@@ -1392,35 +1337,25 @@ public class GameController {
              * ====================================================
              */
 
-            Direction dir =
-                    Direction.parse(input);
+            Direction dir = Direction.parse(input);
 
             if (dir == null) {
+                System.out.println("Ungültige Eingabe!");
 
                 System.out.println(
-                        "Ungültige Eingabe!"
-                );
-
-                System.out.println(
-                        "Benutze N, S, O, W, schlafen, warten oder exit."
+                    "Benutze N, S, O, W, schlafen, warten oder exit."
                 );
 
                 continue;
             }
 
-
-            Location next =
-                    currentLocation.getExit(dir);
+            Location next = currentLocation.getExit(dir);
 
             if (next == null) {
-
-                System.out.println(
-                        "Du kannst nicht in diese Richtung gehen!"
-                );
+                System.out.println("Du kannst nicht in diese Richtung gehen!");
 
                 continue;
             }
-
 
             /*
              * ====================================================
@@ -1429,23 +1364,17 @@ public class GameController {
              */
 
             if (!currentWeather.isTravelAllowed()) {
-
                 System.out.println();
-                System.out.println(
-                        "⛈️ Das Gewitter ist zu gefährlich!"
-                );
+                System.out.println("⛈️ Das Gewitter ist zu gefährlich!");
 
                 System.out.println(
-                        "Du kannst mit dem Heissluftballon momentan nicht starten."
+                    "Du kannst mit dem Heissluftballon momentan nicht starten."
                 );
 
-                System.out.println(
-                        "Benutze \"warten\" oder \"schlafen\"."
-                );
+                System.out.println("Benutze \"warten\" oder \"schlafen\".");
 
                 continue;
             }
-
 
             /*
              * ====================================================
@@ -1453,48 +1382,33 @@ public class GameController {
              * ====================================================
              */
 
-            String oldDayPhase =
-                    getDayPhase();
+            String oldDayPhase = getDayPhase();
 
-            int oldDay =
-                    getCurrentDay();
+            int oldDay = getCurrentDay();
 
-            int oldHour =
-                    getCurrentHour();
+            int oldHour = getCurrentHour();
 
-            int oldMinute =
-                    getCurrentMinute();
+            int oldMinute = getCurrentMinute();
 
+            double baseTravelTime = currentLocation.getTravelTime(dir);
 
-            double baseTravelTime =
-                    currentLocation.getTravelTime(dir);
-
-            double travelTime =
-                    baseTravelTime;
-
+            double travelTime = baseTravelTime;
 
             /*
              * Wetter-Multiplikator
              */
-            double weatherMultiplier =
-                    currentWeather.getTravelMultiplier();
+            double weatherMultiplier = currentWeather.getTravelMultiplier();
 
-            travelTime *=
-                    weatherMultiplier;
-
+            travelTime *= weatherMultiplier;
 
             /*
              * Nacht-Multiplikator
              */
-            boolean travellingAtNight =
-                    isNight();
+            boolean travellingAtNight = isNight();
 
             if (travellingAtNight) {
-
-                travelTime *=
-                        NIGHT_TRAVEL_MULTIPLIER;
+                travelTime *= NIGHT_TRAVEL_MULTIPLIER;
             }
-
 
             /*
              * ====================================================
@@ -1505,51 +1419,32 @@ public class GameController {
             System.out.println();
 
             System.out.printf(
-                    "🎈 Du bereitest den Flug von %s nach %s vor.%n",
-                    currentLocation.getName(),
-                    next.getName()
+                "🎈 Du bereitest den Flug von %s nach %s vor.%n",
+                currentLocation.getName(),
+                next.getName()
             );
+
+            System.out.println("Wetter: " + currentWeather.getDisplayName());
 
             System.out.println(
-                    "Wetter: "
-                            + currentWeather.getDisplayName()
+                "Normale Reisezeit: " + formatDuration(baseTravelTime)
             );
-
-            System.out.println(
-                    "Normale Reisezeit: "
-                            + formatDuration(baseTravelTime)
-            );
-
 
             if (weatherMultiplier > 1.0) {
-
-                int weatherPercent =
-                        (int) Math.round(
-                                (weatherMultiplier - 1.0)
-                                        * 100
-                        );
-
-                System.out.println(
-                        "Wetter-Malus: +"
-                                + weatherPercent
-                                + " %"
+                int weatherPercent = (int) Math.round(
+                    (weatherMultiplier - 1.0) * 100
                 );
-            }
 
+                System.out.println("Wetter-Malus: +" + weatherPercent + " %");
+            }
 
             if (travellingAtNight) {
-
-                System.out.println(
-                        "Nacht-Malus: +20 %"
-                );
+                System.out.println("Nacht-Malus: +20 %");
             }
 
-
             System.out.println(
-                    "Tatsächliche Reisezeit: "
-                            + formatDuration(travelTime)
+                "Tatsächliche Reisezeit: " + formatDuration(travelTime)
             );
-
 
             /*
              * ====================================================
@@ -1557,27 +1452,21 @@ public class GameController {
              * ====================================================
              */
 
-            remainingTime =
-                    startTime - timeElapsed;
+            remainingTime = startTime - timeElapsed;
 
             if (travelTime >= remainingTime) {
-
                 System.out.println();
 
-                System.out.println(
-                        "🎈 Du startest deine Reise..."
-                );
+                System.out.println("🎈 Du startest deine Reise...");
 
-                timeElapsed =
-                        startTime;
+                timeElapsed = startTime;
 
                 System.out.println(
-                        "Doch während des Fluges läuft deine verbleibende Zeit ab."
+                    "Doch während des Fluges läuft deine verbleibende Zeit ab."
                 );
 
                 break;
             }
-
 
             /*
              * ====================================================
@@ -1587,36 +1476,27 @@ public class GameController {
 
             System.out.println();
 
-            System.out.println(
-                    "🎈 Du startest..."
-            );
+            System.out.println("🎈 Du startest...");
 
-            timeElapsed +=
-                    travelTime;
+            timeElapsed += travelTime;
 
-            currentLocation =
-                    next;
-
+            currentLocation = next;
 
             /*
              * Wetter nach vergangener Zeit aktualisieren
              */
             updateWeather();
 
-
             System.out.println();
 
             System.out.printf(
-                    "📍 Du bist in %s angekommen.%n",
-                    currentLocation.getName()
+                "📍 Du bist in %s angekommen.%n",
+                currentLocation.getName()
             );
 
             System.out.println(
-                    "Die Reise hat "
-                            + formatDuration(travelTime)
-                            + " gedauert."
+                "Die Reise hat " + formatDuration(travelTime) + " gedauert."
             );
-
 
             /*
              * ====================================================
@@ -1625,15 +1505,10 @@ public class GameController {
              */
 
             if (getCurrentDay() > oldDay) {
-
                 System.out.println();
 
-                System.out.printf(
-                        "🌅 Tag %d hat begonnen!%n",
-                        getCurrentDay()
-                );
+                System.out.printf("🌅 Tag %d hat begonnen!%n", getCurrentDay());
             }
-
 
             /*
              * ====================================================
@@ -1641,24 +1516,17 @@ public class GameController {
              * ====================================================
              */
 
-            String newDayPhase =
-                    getDayPhase();
+            String newDayPhase = getDayPhase();
 
             if (!oldDayPhase.equals(newDayPhase)) {
-
                 System.out.println();
 
                 System.out.println(
-                        "Die Tageszeit hat sich während deiner Reise geändert:"
+                    "Die Tageszeit hat sich während deiner Reise geändert:"
                 );
 
-                System.out.println(
-                        oldDayPhase
-                                + " → "
-                                + newDayPhase
-                );
+                System.out.println(oldDayPhase + " → " + newDayPhase);
             }
-
 
             /*
              * ====================================================
@@ -1668,24 +1536,18 @@ public class GameController {
 
             System.out.println();
 
-            System.out.printf(
-                    "Abfahrt: %02d:%02d Uhr%n",
-                    oldHour,
-                    oldMinute
-            );
+            System.out.printf("Abfahrt: %02d:%02d Uhr%n", oldHour, oldMinute);
 
             System.out.printf(
-                    "Ankunft: %02d:%02d Uhr%n",
-                    getCurrentHour(),
-                    getCurrentMinute()
+                "Ankunft: %02d:%02d Uhr%n",
+                getCurrentHour(),
+                getCurrentMinute()
             );
 
             System.out.println(
-                    "Wetter bei Ankunft: "
-                            + currentWeather.getDisplayName()
+                "Wetter bei Ankunft: " + currentWeather.getDisplayName()
             );
         }
-
 
         /*
          * ========================================================
@@ -1694,28 +1556,23 @@ public class GameController {
          */
 
         if (startTime - timeElapsed <= 0) {
-
             System.out.println();
             System.out.println(
-                    "================================================"
+                "================================================"
             );
 
-            System.out.println(
-                    "⏰ Die Zeit ist abgelaufen!"
-            );
+            System.out.println("⏰ Die Zeit ist abgelaufen!");
 
             System.out.println(
-                    "Du hast es nicht rechtzeitig geschafft, aus der Schweiz zu fliehen."
+                "Du hast es nicht rechtzeitig geschafft, aus der Schweiz zu fliehen."
             );
 
             System.out.println();
 
-            System.out.println(
-                    "GAME OVER"
-            );
+            System.out.println("GAME OVER");
 
             System.out.println(
-                    "================================================"
+                "================================================"
             );
         }
 
