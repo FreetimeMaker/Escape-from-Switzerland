@@ -596,6 +596,16 @@ public class GameController {
             "Du bist jetzt in \"Finsterwald bei Entlebuch\" im Kanton \"Luzern\" oder kurz \"LU\"."
         );
 
+        Location mettlen = new Location(
+            "Mettlen",
+            "Du bist jetzt in \"Mettlen\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location kugelweg_hasliberg = new Location(
+            "Kugelweg Hasliberg",
+            "Du bist jetzt beim \"Kugelweg Hasliberg\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -1044,6 +1054,11 @@ public class GameController {
             unesco_biospaehre_entlebuch,
             minutes(15)
         );
+        rickhubel.setTwoWayExit(Direction.WEST, mettlen, minutes(30));
+
+        // Von Wilen (Sarnen)
+        wilen_sarnen.setTwoWayExit(Direction.NORTH, stalden_sarnen, minutes(4));
+        wilen_sarnen.setTwoWayExit(Direction.SOUTH, kugelweg_hasliberg, minutes(20));
 
         this.currentLocation = aelggialp;
     }
