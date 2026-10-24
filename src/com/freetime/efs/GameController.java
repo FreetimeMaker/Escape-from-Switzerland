@@ -1,9 +1,5 @@
 package com.freetime.efs;
 
-import com.freetime.efs.Direction;
-import com.sun.tools.javac.util.JCDiagnostic.DiagnosticFlag;
-import java.time.DayOfWeek;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -24,7 +20,7 @@ public class GameController {
 
     private Location currentLocation;
 
-    private double startTime = GAME_DURATION;
+    final private double startTime = GAME_DURATION;
     private double timeElapsed = 0.0;
 
     private final Random random = new Random();
@@ -1499,7 +1495,7 @@ public class GameController {
 
         System.out.println("Mit \"warten\" wartest du 30 Minuten.");
 
-        List<String> validStart = Arrays.asList("start");
+        List<String> validStart = List.of("start");
 
         boolean start = false;
 
@@ -1523,6 +1519,7 @@ public class GameController {
          * ========================================================
          */
 
+        label:
         while (startTime - timeElapsed > 0) {
             updateWeather();
 
@@ -1565,34 +1562,36 @@ public class GameController {
              * ====================================================
              */
 
-            if (input.equals("exit") || input.equals("q")) {
-                System.out.println("Spiel vorbei.");
+            switch (input) {
+                case "exit":
+                case "q":
+                    System.out.println("Spiel vorbei.");
 
-                break;
-            }
+                    break label;
 
-            /*
-             * ====================================================
-             * SCHLAFEN
-             * ====================================================
-             */
 
-            if (input.equals("schlafen") || input.equals("sleep")) {
-                sleepUntilMorning();
+                /*
+                 * ====================================================
+                 * SCHLAFEN
+                 * ====================================================
+                 */
+                case "schlafen":
+                case "sleep":
+                    sleepUntilMorning();
 
-                continue;
-            }
+                    continue;
 
-            /*
-             * ====================================================
-             * WARTEN
-             * ====================================================
-             */
 
-            if (input.equals("warten") || input.equals("wait")) {
-                waitThirtyMinutes();
+                    /*
+                     * ====================================================
+                     * WARTEN
+                     * ====================================================
+                     */
+                case "warten":
+                case "wait":
+                    waitThirtyMinutes();
 
-                continue;
+                    continue;
             }
 
             /*
