@@ -1,6 +1,5 @@
 package com.freetime.efs;
 
-import com.freetime.efs.Direction;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -615,12 +614,12 @@ public class GameController {
 
         Location rychenbach = new Location(
             "Rychenbach",
-            "Du bist jetzt in \"Rychenbach\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Du bist jetzt beim \"Rychenbach\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location kraftwerk_hopflauenen = new Location(
             "Kraftwerk Hopflauenen",
-            "Du bist jetzt in \"Kraftwerk Hopflauenen\" im Kanton \"Bern\" oder kurz \"BE\"."
+            "Du bist jetzt beim \"Kraftwerk Hopflauenen\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
         Location axalphorn = new Location(
@@ -631,6 +630,146 @@ public class GameController {
         Location sachseln = new Location(
             "Sachseln",
             "Du bist jetzt in \"Sachseln\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location gibel = new Location(
+            "Gibel",
+            "Du bist jetzt beim \"Gibel\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location triftbruecke = new Location(
+            "Triftbrücke",
+            "Du bist jetzt bei der \"Triftbrücke\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location engstlensee = new Location(
+            "Engstlensee",
+            "Du bist jetzt beim \"Engstlensee\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location bristensee = new Location(
+            "Bristensee",
+            "Du bist jetzt beim \"Bristensee\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location schattenhalb = new Location(
+            "Schattenhalb",
+            "Du bist jetzt in \"Schattenhalb\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location lueterenseewli = new Location(
+            "Lüterenseewli",
+            "Du bist jetzt beim \"Lüterenseewli\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location unterstock = new Location(
+            "Unterstock",
+            "Du bist jetzt in \"Unterstock\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location giessbachfaelle = new Location(
+            "Giessbachfälle",
+            "Du bist jetzt bei den \"Giessbachfällen\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location tschingel = new Location(
+            "Tschingel",
+            "Du bist jetzt in \"Tschingel\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location schwarzhorn = new Location(
+            "Schwarzhorn",
+            "Du bist jetzt beim \"Schwarzhorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location augstmatthorn = new Location(
+            "Augstmatthorn",
+            "Du bist jetzt beim \"Augstmatthorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location klein_wellhorn = new Location(
+            "Klein Wellhorn",
+            "Du bist jetzt beim \"Klein Wellhorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location hoch_horefellistock = new Location(
+            "Hoch Horefellistock",
+            "Du bist jetzt beim \"Hoch Horefellistock\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location schrattenfluh = new Location(
+            "Schrattenfluh",
+            "Du bist jetzt bei der \"Schrattenfluh\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location luetschental = new Location(
+            "Lütschental",
+            "Du bist jetzt im \"Lütschental\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location interlaken = new Location(
+            "Interlaken",
+            "Du bist jetzt in \"Interlaken\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location glaubenberg = new Location(
+            "Glaubenberg",
+            "Du bist jetzt beim \"Glaubenberg\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location fels_am_sturz = new Location(
+            "Fels am Sturz",
+            "Du bist jetzt beim \"Fels am Sturz\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location ochsenmatt = new Location(
+            "Ochsenmatt",
+            "Du bist jetzt bei der \"Ochsenmatt\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+        );
+
+        Location gitziloch = new Location(
+            "Gitziloch",
+            "Du bist jetzt beim \"Gitziloch\" im Kanton \"Luzern\" oder kurz \"LU\"."
+        );
+
+        Location laettgaessli = new Location(
+            "Lättgässl",
+            "Du bist jetzt bei der \"Lättgässl\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location pizzo_gallina = new Location(
+            "Pizzo Gallina",
+            "Du bist jetzt beim \"Pizzo Gallina\" im Kanton \"Tessin\" oder kurz \"TI\"."
+        );
+
+        Location gelmersee = new Location(
+            "Gelmersee",
+            "Du bist jetzt beim \"Gelmersee\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location goeschenernalpsee = new Location(
+            "Göscheneralpsee",
+            "Du bist jetzt beim \"Göscheneralpsee\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location disentis_muster = new Location(
+            "Disentis/Muster",
+            "Du bist jetzt in \"Disentis/Muster\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location goeschenen = new Location(
+            "Göschenen",
+            "Du bist jetzt in \"Göschenen\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location stanserhorn = new Location(
+            "Stanserhorn",
+            "Du bist jetzt beim \"Stanserhorn\" im Kanton \"Nidwalden\" oder kurz \"NW\"."
+        );
+
+        Location chaiserstock = new Location(
+            "Chaiserstock",
+            "Du bist jetzt beim \"Chaiserstock\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
         );
 
         /*
@@ -1114,6 +1253,150 @@ public class GameController {
         // Von Hochstollen
         hochstollen.setTwoWayExit(Direction.SOUTH, maegisalp, minutes(6.5));
         hochstollen.setTwoWayExit(Direction.NORTH, sachseln, minutes(15));
+        hochstollen.setTwoWayExit(Direction.WEST, gibel, minutes(8));
+        hochstollen.setTwoWayExit(Direction.EAST, melchsee, minutes(4));
+
+        // Vom Tälli Klettersteig
+        taelli_klettersteig.setTwoWayExit(
+            Direction.WEST,
+            maegisalp,
+            minutes(15)
+        );
+        taelli_klettersteig.setTwoWayExit(
+            Direction.SOUTH,
+            triftbruecke,
+            minutes(7.5)
+        );
+        taelli_klettersteig.setTwoWayExit(
+            Direction.NORTH,
+            engstlensee,
+            minutes(6.5)
+        );
+        taelli_klettersteig.setTwoWayExit(
+            Direction.EAST,
+            bristensee,
+            minutes(18.5)
+        );
+
+        // Von Innertkirchen
+        innertkirchen.setTwoWayExit(Direction.NORTH, maegisalp, minutes(10));
+        innertkirchen.setTwoWayExit(Direction.WEST, schattenhalb, minutes(5));
+        innertkirchen.setTwoWayExit(
+            Direction.EAST,
+            lueterenseewli,
+            minutes(10)
+        );
+        innertkirchen.setTwoWayExit(Direction.SOUTH, unterstock, minutes(2.5));
+
+        // Von der Oltschiburg
+        oltschiburg.setTwoWayExit(Direction.NORTH, brienzwiler, minutes(8));
+        oltschiburg.setTwoWayExit(Direction.WEST, giessbachfaelle, minutes(8));
+        oltschiburg.setTwoWayExit(Direction.EAST, tschingel, minutes(6.5));
+        oltschiburg.setTwoWayExit(Direction.SOUTH, schwarzhorn, minutes(14));
+
+        // Von Brienz
+        brienz.setTwoWayExit(Direction.EAST, brienzwiler, minutes(10));
+        brienz.setTwoWayExit(Direction.SOUTH, giessbachfaelle, minutes(5));
+        brienz.setTwoWayExit(Direction.NORTH, brienzer_rothorn, minutes(9));
+        brienz.setTwoWayExit(Direction.WEST, augstmatthorn, minutes(8));
+
+        // Von der Gletscherschlucht Rosenlaui
+        gletscherschlucht_rosenlaui.setTwoWayExit(
+            Direction.NORTH,
+            balm_bei_meiringen,
+            minutes(14)
+        );
+        gletscherschlucht_rosenlaui.setTwoWayExit(
+            Direction.SOUTH,
+            klein_wellhorn,
+            minutes(4)
+        );
+        gletscherschlucht_rosenlaui.setTwoWayExit(
+            Direction.WEST,
+            schwarzhorn,
+            minutes(8.5)
+        );
+        gletscherschlucht_rosenlaui.setTwoWayExit(
+            Direction.EAST,
+            hoch_horefellistock,
+            minutes(15)
+        );
+
+        // Vom Brienzersee
+        brienzersee.setTwoWayExit(
+            Direction.EAST,
+            balm_bei_meiringen,
+            minutes(9)
+        );
+        brienzersee.setTwoWayExit(Direction.NORTH, schrattenfluh, minutes(15));
+        brienzersee.setTwoWayExit(Direction.SOUTH, luetschental, minutes(8.5));
+        brienzersee.setTwoWayExit(Direction.WEST, interlaken, minutes(7.5));
+
+        // Von der Panoramastrasse Glaubenbielen
+        panoramastrasse_glaubenbielen.setTwoWayExit(
+            Direction.SOUTH,
+            berghaus_schoenbueel,
+            minutes(10)
+        );
+        panoramastrasse_glaubenbielen.setTwoWayExit(
+            Direction.NORTH,
+            glaubenberg,
+            minutes(10)
+        );
+        panoramastrasse_glaubenbielen.setTwoWayExit(
+            Direction.WEST,
+            fels_am_sturz,
+            minutes(3)
+        );
+        panoramastrasse_glaubenbielen.setTwoWayExit(
+            Direction.EAST,
+            ochsenmatt,
+            minutes(8.5)
+        );
+
+        // Vom Brienzer Rothorn
+        brienzer_rothorn.setTwoWayExit(Direction.SOUTH, brienz, minutes(9));
+        brienzer_rothorn.setTwoWayExit(
+            Direction.EAST,
+            berghaus_schoenbueel,
+            minutes(8.5)
+        );
+        brienzer_rothorn.setTwoWayExit(Direction.NORTH, gitziloch, minutes(10));
+        brienzer_rothorn.setTwoWayExit(
+            Direction.WEST,
+            laettgaessli,
+            minutes(1)
+        );
+
+        // Vom Rhonegletscher
+        rhonegletscher.setTwoWayExit(
+            Direction.NORTH,
+            giglistock,
+            minutes(21.5)
+        );
+        rhonegletscher.setTwoWayExit(
+            Direction.SOUTH,
+            pizzo_gallina,
+            minutes(14)
+        );
+        rhonegletscher.setTwoWayExit(Direction.WEST, gelmersee, minutes(10));
+        rhonegletscher.setTwoWayExit(
+            Direction.EAST,
+            goeschenernalpsee,
+            minutes(12)
+        );
+
+        // Von Wassen
+        wassen.setTwoWayExit(Direction.WEST, giglistock, minutes(25));
+        wassen.setTwoWayExit(Direction.NORTH, silenen, minutes(15));
+        wassen.setTwoWayExit(Direction.EAST, disentis_muster, minutes(25));
+        wassen.setTwoWayExit(Direction.SOUTH, goeschenen, minutes(5));
+
+        // Von Dallenwil
+        dallenwil.setTwoWayExit(Direction.SOUTH, engelberg, minutes(17));
+        dallenwil.setTwoWayExit(Direction.NORTH, oberdorf, minutes(3));
+        dallenwil.setTwoWayExit(Direction.WEST, stanserhorn, minutes(6.5));
+        dallenwil.setTwoWayExit(Direction.EAST, chaiserstock, minutes(18.5));
 
         this.currentLocation = aelggialp;
     }
