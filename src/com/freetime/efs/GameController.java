@@ -1,5 +1,6 @@
 package com.freetime.efs;
 
+import com.freetime.efs.Direction;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public class GameController {
 
     private Location currentLocation;
 
-    final private double startTime = GAME_DURATION;
+    private final double startTime = GAME_DURATION;
     private double timeElapsed = 0.0;
 
     private final Random random = new Random();
@@ -602,6 +603,36 @@ public class GameController {
             "Du bist jetzt beim \"Kugelweg Hasliberg\" im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
+        Location laetzengraben = new Location(
+            "Lätzengrabben",
+            "Du bist jetzt beim \"Lätzengrabben\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location st_niklausen = new Location(
+            "St. Niklausen",
+            "Du bist jetzt in \"St. Niklausen\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
+        Location rychenbach = new Location(
+            "Rychenbach",
+            "Du bist jetzt in \"Rychenbach\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location kraftwerk_hopflauenen = new Location(
+            "Kraftwerk Hopflauenen",
+            "Du bist jetzt in \"Kraftwerk Hopflauenen\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location axalphorn = new Location(
+            "Axalphorn",
+            "Du bist jetzt beim \"Axalphorn\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
+        Location sachseln = new Location(
+            "Sachseln",
+            "Du bist jetzt in \"Sachseln\" im Kanton \"Obwalden\" oder kurz \"OW\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -1054,7 +1085,35 @@ public class GameController {
 
         // Von Wilen (Sarnen)
         wilen_sarnen.setTwoWayExit(Direction.NORTH, stalden_sarnen, minutes(4));
-        wilen_sarnen.setTwoWayExit(Direction.SOUTH, kugelweg_hasliberg, minutes(20));
+        wilen_sarnen.setTwoWayExit(
+            Direction.SOUTH,
+            kugelweg_hasliberg,
+            minutes(20)
+        );
+        wilen_sarnen.setTwoWayExit(Direction.WEST, laetzengraben, minutes(2.5));
+        wilen_sarnen.setTwoWayExit(Direction.EAST, st_niklausen, minutes(1.5));
+
+        // Vom Reichenbachfall
+        reichenbachfall.setTwoWayExit(
+            Direction.NORTH,
+            aareschlucht_meiringen,
+            minutes(3)
+        );
+        reichenbachfall.setTwoWayExit(
+            Direction.SOUTH,
+            rychenbach,
+            minutes(3.5)
+        );
+        reichenbachfall.setTwoWayExit(
+            Direction.EAST,
+            kraftwerk_hopflauenen,
+            minutes(4)
+        );
+        reichenbachfall.setTwoWayExit(Direction.WEST, axalphorn, minutes(15));
+
+        // Von Hochstollen
+        hochstollen.setTwoWayExit(Direction.SOUTH, maegisalp, minutes(6.5));
+        hochstollen.setTwoWayExit(Direction.NORTH, sachseln, minutes(15));
 
         this.currentLocation = aelggialp;
     }
@@ -1519,8 +1578,7 @@ public class GameController {
          * ========================================================
          */
 
-        label:
-        while (startTime - timeElapsed > 0) {
+        label: while (startTime - timeElapsed > 0) {
             updateWeather();
 
             double remainingTime = startTime - timeElapsed;
@@ -1568,8 +1626,6 @@ public class GameController {
                     System.out.println("Spiel vorbei.");
 
                     break label;
-
-
                 /*
                  * ====================================================
                  * SCHLAFEN
@@ -1580,13 +1636,11 @@ public class GameController {
                     sleepUntilMorning();
 
                     continue;
-
-
-                    /*
-                     * ====================================================
-                     * WARTEN
-                     * ====================================================
-                     */
+                /*
+                 * ====================================================
+                 * WARTEN
+                 * ====================================================
+                 */
                 case "warten":
                 case "wait":
                     waitThirtyMinutes();
