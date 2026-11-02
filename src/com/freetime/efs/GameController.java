@@ -374,7 +374,7 @@ public class GameController {
         );
 
         Location gschletterkurve = new Location(
-            "Gletterkurve",
+            "Gschletterkurve",
             "Du bist jetzt bei der Gschletterkurve im Kanton \"Bern\" oder kurz \"BE\"."
         );
 
@@ -791,6 +791,16 @@ public class GameController {
         Location rheinschlucht = new Location(
             "Rheinschlucht",
             "Du bist jetzt in der \"Rheinschlucht\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location raeterirchsbodensee = new Location(
+            "Räterirchsbodensee",
+            "Du bist jetzt beim \"Räterirchsbodensee\" im Kanton \"Uri\" oder kurz \"UR\"."
+        );
+
+        Location gotthardreussquelle = new Location(
+            "Gotthardreussquelle",
+            "Du bist jetzt bei der \"Gotthardreussquelle\" im Kanton \"Tessin\" oder kurz \"TI\"."
         );
 
         /*
@@ -1433,6 +1443,9 @@ public class GameController {
 
         // Von Realp
         realp.setTwoWayExit(Direction.NORTH, susten_passhoehe, minutes(25));
+        realp.setTwoWayExit(Direction.WEST, raeterirchsbodensee, minutes(15));
+        realp.setTwoWayExit(Direction.SOUTH, gotthardreussquelle, minutes(8.5));
+        realp.setTwoWayExit(Direction.EAST, hospental, minutes(5));
 
         this.currentLocation = aelggialp;
     }
