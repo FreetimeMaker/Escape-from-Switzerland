@@ -1,5 +1,6 @@
 package com.freetime.efs;
 
+import com.freetime.efs.Direction;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -772,6 +773,11 @@ public class GameController {
             "Du bist jetzt beim \"Chaiserstock\" im Kanton \"Schwyz\" oder kurz \"SZ\"."
         );
 
+        Location tamins = new Location(
+            "Tamins",
+            "Du bist jetzt in \"Tamins\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -1397,6 +1403,15 @@ public class GameController {
         dallenwil.setTwoWayExit(Direction.NORTH, oberdorf, minutes(3));
         dallenwil.setTwoWayExit(Direction.WEST, stanserhorn, minutes(6.5));
         dallenwil.setTwoWayExit(Direction.EAST, chaiserstock, minutes(18.5));
+
+        // Von Erstfeld
+        erstfeld.setTwoWayExit(Direction.WEST, engelberg, minutes(25));
+        erstfeld.setTwoWayExit(Direction.SOUTH, silenen, minutes(6));
+        erstfeld.setTwoWayExit(Direction.NORTH, schattdorf, minutes(5));
+        erstfeld.setTwoWayExit(Direction.EAST, tamins, minutes(52.5));
+
+        // Von Laax
+        laax.setTwoWayExit(Direction.WEST, silenen, minutes(60));
 
         this.currentLocation = aelggialp;
     }
