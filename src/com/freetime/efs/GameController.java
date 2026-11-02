@@ -778,6 +778,21 @@ public class GameController {
             "Du bist jetzt in \"Tamins\" im Kanton \"Graubünden\" oder kurz \"GR\"."
         );
 
+        Location flims = new Location(
+            "Flims",
+            "Du bist jetzt in \"Flims\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location sagogn = new Location(
+            "Sagogn",
+            "Du bist jetzt in \"Sagogn\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
+        Location rheinschlucht = new Location(
+            "Rheinschlucht",
+            "Du bist jetzt in der \"Rheinschlucht\" im Kanton \"Graubünden\" oder kurz \"GR\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -1412,6 +1427,12 @@ public class GameController {
 
         // Von Laax
         laax.setTwoWayExit(Direction.WEST, silenen, minutes(60));
+        laax.setTwoWayExit(Direction.NORTH, flims, minutes(4));
+        laax.setTwoWayExit(Direction.SOUTH, sagogn, minutes(4));
+        laax.setTwoWayExit(Direction.EAST, rheinschlucht, minutes(6.5));
+
+        // Von Realp
+        realp.setTwoWayExit(Direction.NORTH, susten_passhoehe, minutes(25));
 
         this.currentLocation = aelggialp;
     }
