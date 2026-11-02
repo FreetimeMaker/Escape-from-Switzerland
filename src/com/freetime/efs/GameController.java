@@ -803,6 +803,11 @@ public class GameController {
             "Du bist jetzt bei der \"Gotthardreussquelle\" im Kanton \"Tessin\" oder kurz \"TI\"."
         );
 
+        Location militaerflugplatz_meiringen = new Location(
+            "Militärflugplatz Meiringen",
+            "Du bist jetzt beim \"Militärflugplatz Meiringen\" im Kanton \"Bern\" oder kurz \"BE\"."
+        );
+
         /*
          * ========================================================
          * VERBINDUNGEN
@@ -1446,6 +1451,18 @@ public class GameController {
         realp.setTwoWayExit(Direction.WEST, raeterirchsbodensee, minutes(15));
         realp.setTwoWayExit(Direction.SOUTH, gotthardreussquelle, minutes(8.5));
         realp.setTwoWayExit(Direction.EAST, hospental, minutes(5));
+
+        // Von der Gschletterkurve
+        gschletterkurve.setTwoWayExit(
+            Direction.EAST,
+            susten_passhoehe,
+            minutes(10)
+        );
+        gschletterkurve.setTwoWayExit(
+            Direction.WEST,
+            militaerflugplatz_meiringen,
+            minutes(18.5)
+        );
 
         this.currentLocation = aelggialp;
     }
